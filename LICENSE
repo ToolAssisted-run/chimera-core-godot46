@@ -1,0 +1,44 @@
+MIT License
+
+Copyright (c) 2026 Sergio Martin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+What this license covers, and what the built core contains
+
+The license above covers this repository's own code: the Chimera module in
+module/chimera, the scripts in waterbox/ and the documents.
+
+The core package built from it (godot46.chimeraCore) also contains:
+
+- the Godot Engine, built from the submodule extern/godot (4.6.3-stable)
+  with the patches in patches/ applied. Godot is under the MIT license
+  (extern/godot/LICENSE.txt), copyright Godot Engine contributors, Juan
+  Linietsky and Ariel Manzur;
+- the third-party libraries Godot keeps in its thirdparty/ folder, each under
+  its own license, all listed with their texts in extern/godot/COPYRIGHT.txt;
+- Mesa 24.0.9 (MIT), the software OpenGL the core draws with, with the
+  patches in waterbox/mesa-patches applied;
+- LLVM 18.1.8 (Apache 2.0 with the LLVM exception), which Mesa's llvmpipe
+  compiles the shaders with.
+
+Each package carries these texts in its licenses/ folder
+(waterbox/package-licenses.json says which). The package carries no game.

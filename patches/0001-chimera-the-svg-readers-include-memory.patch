@@ -1,0 +1,30 @@
+From: Sergio Martin
+Subject: [PATCH] chimera: the SVG readers include <memory> themselves
+
+Built without threads (threads=no), nothing else brings <memory> in
+before these two files use std::unique_ptr, and they do not compile.
+---
+diff -ru a/modules/svg/image_loader_svg.cpp b/modules/svg/image_loader_svg.cpp
+--- a/modules/svg/image_loader_svg.cpp	2026-10-20 06:43:46.908083360 +0200
++++ b/modules/svg/image_loader_svg.cpp	2026-10-20 06:43:46.919566590 +0200
+@@ -34,6 +34,8 @@
+ 
+ #include <thorvg.h>
+ 
++#include <memory>
++
+ HashMap<Color, Color> ImageLoaderSVG::forced_color_map = HashMap<Color, Color>();
+ 
+ void ImageLoaderSVG::set_forced_color_map(const HashMap<Color, Color> &p_color_map) {
+diff -ru a/modules/text_server_adv/thorvg_svg_in_ot.cpp b/modules/text_server_adv/thorvg_svg_in_ot.cpp
+--- a/modules/text_server_adv/thorvg_svg_in_ot.cpp	2026-10-20 06:43:46.909464616 +0200
++++ b/modules/text_server_adv/thorvg_svg_in_ot.cpp	2026-10-20 06:43:55.672600635 +0200
+@@ -45,6 +45,8 @@
+ #include <freetype/otsvg.h>
+ #include <ft2build.h>
+ 
++#include <memory>
++
+ FT_Error tvg_svg_in_ot_init(FT_Pointer *p_state) {
+ 	*p_state = memnew(TVG_State);
+ 

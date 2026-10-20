@@ -1,0 +1,21 @@
+; The core's test game: it prints, every frame, what a game can learn from
+; the machine - the clock, the date, random numbers, the keys, the mouse, the
+; controller, the window - so the core's tests can check each of them.
+
+config_version=5
+
+[application]
+
+config/name="Chimera Probe"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=240
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

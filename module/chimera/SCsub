@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+from misc.utility.scons_hints import *
+
+Import("env")
+Import("env_modules")
+
+env_chimera = env_modules.Clone()
+env_chimera.Prepend(CPPPATH=["#thirdparty/glad"] + env["chimera_kit"].split(":"))
+env_chimera.add_source_files(env.modules_sources, "*.cpp")
+env_chimera.add_source_files(env.modules_sources, "*.c")
