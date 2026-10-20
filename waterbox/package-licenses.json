@@ -41,7 +41,7 @@
       "license": "Apache-2.0 WITH LLVM-exception",
       "url": "https://github.com/llvm/llvm-project",
       "version": "18.1.8",
-      "file": "build/llvm-src/llvm/LICENSE.TXT",
+      "file": "waterbox/licenses/LLVM-LICENSE.TXT",
       "sourceUrl": "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/llvm-project-18.1.8.src.tar.xz"
     }
   ]
