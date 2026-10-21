@@ -66,7 +66,8 @@ struct InputDef {
 #define K(c, lo, up) { IN_KEY, (int)Key::c, KeyLocation::UNSPECIFIED, lo, up }
 #define KL(c, loc) { IN_KEY, (int)Key::c, KeyLocation::loc, 0, 0 }
 
-// In waterbox.config's order.
+// In the order waterbox.config listed them until 2026-10-21 (listed_input
+// below maps the order it lists them in now).
 const InputDef inputs[] = {
 	{ IN_MOUSE, (int)MouseButton::LEFT, KeyLocation::UNSPECIFIED, 0, 0 },
 	{ IN_MOUSE, (int)MouseButton::MIDDLE, KeyLocation::UNSPECIFIED, 0, 0 },
@@ -631,9 +632,26 @@ ECL_EXPORT int Init(void) {
 	return 1;
 }
 
+// waterbox.config lists the keys as they sit on a keyboard, row by row
+// (chimera#337), and inputs[] keeps the order the events have always gone to
+// the game in, so two keys pressed on one frame still arrive as they did and a
+// movie made before plays the same: the listed index of each button, turned
+// into its place in inputs[].
+const uint8_t listed_input[] = {
+	0, 1, 2, 103, 104, 105, 106, 41, 64, 65, 66, 67, 68, 69, 70, 71,
+	72, 73, 74, 75, 62, 63, 86, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+	38, 76, 77, 43, 42, 19, 25, 7, 20, 22, 27, 23, 11, 17, 18, 78,
+	79, 80, 60, 3, 21, 6, 8, 9, 10, 12, 13, 14, 81, 82, 40, 54,
+	28, 26, 5, 24, 4, 16, 15, 83, 84, 85, 55, 56, 58, 39, 59, 57,
+	45, 46, 48, 44, 47, 49, 50, 52, 51, 53, 61, 100, 99, 98, 94, 95,
+	96, 97, 91, 92, 93, 88, 89, 90, 102, 87, 101, 107, 108, 109, 110, 111,
+	112, 113, 114, 115, 116, 117, 118, 119, 120, 121
+};
+static_assert(sizeof(listed_input) == INPUT_COUNT, "a place in inputs[] for every listed button");
+
 ECL_EXPORT void SetButton(int32_t p_index, int32_t p_state) {
 	if (machine && p_index >= 0 && p_index < INPUT_COUNT) {
-		machine->buttons[p_index] = p_state ? 1 : 0;
+		machine->buttons[listed_input[p_index]] = p_state ? 1 : 0;
 	}
 }
 
