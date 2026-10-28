@@ -1,0 +1,80 @@
+From: Sergio Martin
+Subject: [PATCH] chimera: llvmpipe makes x86-64-v3 code where the project asks for AVX2
+
+With CHIMERA_PINNED_CPU and the core's chimera_llvmpipe_avx2() true (the
+project's Drawing Code setting, chimera issue 380), a computer with all of
+x86-64-v3 (AVX2, FMA, BMI, LZCNT, MOVBE) and an OS that saves its registers
+is reported as that CPU: 256-bit vectors, still one processor, and LLVM
+targets x86-64-v3. Every such computer makes the same code; one without
+gets the baseline of patch 0001.
+---
+--- a/src/util/u_cpu_detect.c	2026-10-28 07:44:35.862644595 +0100
++++ b/src/util/u_cpu_detect.c	2026-10-28 07:45:13.234985846 +0100
+@@ -994,6 +994,33 @@
+       printf("util_cpu_caps.num_cpu_mask_bits = %u\n", util_cpu_caps.num_cpu_mask_bits);
+    }
+ #ifdef CHIMERA_PINNED_CPU
++   /* Chimera: the project's Drawing Code setting asks for AVX2 (the core's
++    * chimera_llvmpipe_avx2, chimera issue 380), and the computer has all of
++    * x86-64-v3 with the OS saving its registers: llvmpipe is told of that
++    * CPU instead - 256-bit vectors, still one processor - and LLVM makes
++    * x86-64-v3's code, the same on every computer that has it. One without
++    * gets the baseline below, and its pictures may differ. */
++   /* weak: a Mesa linked without the core (its own libOSMesa) has none, and
++    * keeps the baseline */
++   extern int chimera_llvmpipe_avx2(void) __attribute__((weak));
++   int chimera_v3 = 0;
++   if (chimera_llvmpipe_avx2 && chimera_llvmpipe_avx2()) {
++      uint32_t r1[4], r7[4], rx[4];
++      cpuid(1, r1);
++      cpuid_count(7, 0, r7);
++      cpuid(0x80000001, rx);
++      const uint32_t c = r1[2];
++      /* SSE3, SSSE3, FMA, SSE4.1, SSE4.2, MOVBE, POPCNT, OSXSAVE, AVX, F16C */
++      const int base = (c & (1u << 0)) && (c & (1u << 9)) && (c & (1u << 12)) && (c & (1u << 19)) &&
++                       (c & (1u << 20)) && (c & (1u << 22)) && (c & (1u << 23)) && (c & (1u << 27)) &&
++                       (c & (1u << 28)) && (c & (1u << 29));
++      /* AVX2, BMI1, BMI2; LZCNT; and the OS saving XMM and YMM (XCR0 bits 1 and 2) */
++      if (base && (r7[1] & (1u << 5)) && (r7[1] & (1u << 3)) && (r7[1] & (1u << 8)) && (rx[2] & (1u << 5)) &&
++          (xgetbv() & 6) == 6)
++         chimera_v3 = 1;
++   }
++#endif
++#ifdef CHIMERA_PINNED_CPU
+    /* Chimera: the machine is the same on every computer, so llvmpipe is told
+     * of one CPU and the same one everywhere: x86-64 with SSE2 and nothing
+     * newer, one processor (so it rasterises on the calling thread and starts
+@@ -1017,6 +1044,18 @@
+       util_cpu_caps.num_cpu_mask_bits = 1;
+       memcpy(util_cpu_caps.cpu_to_L3, l3, sizeof l3);
+       util_cpu_caps.L3_affinity_mask = NULL;
++      if (chimera_v3) {
++         util_cpu_caps.has_sse3 = 1;
++         util_cpu_caps.has_ssse3 = 1;
++         util_cpu_caps.has_sse4_1 = 1;
++         util_cpu_caps.has_sse4_2 = 1;
++         util_cpu_caps.has_popcnt = 1;
++         util_cpu_caps.has_avx = 1;
++         util_cpu_caps.has_avx2 = 1;
++         util_cpu_caps.has_f16c = 1;
++         util_cpu_caps.has_fma = 1;
++         util_cpu_caps.max_vector_bits = 256;
++      }
+    }
+ #endif
+    _util_cpu_caps_state.caps = util_cpu_caps;
+--- a/src/gallium/auxiliary/gallivm/lp_bld_misc.cpp	2026-10-28 07:44:35.866695612 +0100
++++ b/src/gallium/auxiliary/gallivm/lp_bld_misc.cpp	2026-10-28 07:44:35.887684028 +0100
+@@ -493,9 +493,10 @@
+    }
+ 
+ #ifdef CHIMERA_PINNED_CPU
+-   /* Chimera: the baseline x86-64, whatever this computer is (see
++   /* Chimera: the baseline x86-64, or x86-64-v3 where the project asks for
++    * AVX2 and the computer has it, whatever else this computer is (see
+     * u_cpu_detect.c) */
+-   StringRef MCPU = "x86-64";
++   StringRef MCPU = util_get_cpu_caps()->has_avx2 ? "x86-64-v3" : "x86-64";
+ #else
+    StringRef MCPU = llvm::sys::getHostCPUName();
+ #endif

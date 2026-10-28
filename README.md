@@ -8,14 +8,14 @@ file, `godot46.chimeraCore`, that goes in Chimera's `cores` folder.
 
 Each Godot 4 version has its core, because a game's compiled scripts only
 load in the version that exported them:
-[4.7](https://github.com/ToolAssisted-run/chimera-core-godot),
+[4.7](https://github.com/ToolAssisted-run/chimera-core-godot47),
 [4.6](https://github.com/ToolAssisted-run/chimera-core-godot46),
 [4.5](https://github.com/ToolAssisted-run/chimera-core-godot45),
 [4.4](https://github.com/ToolAssisted-run/chimera-core-godot44) (which also
 takes games of 4.0 to 4.3). A core refuses a game of another version and
-says which core to use. This repository is chimera-core-godot's code with
+says which core to use. This repository is chimera-core-godot47's code with
 Godot 4.6.3 pinned; everything about how it works is in that repository's
-[docs/PLAN.md](https://github.com/ToolAssisted-run/chimera-core-godot/blob/main/docs/PLAN.md).
+[docs/PLAN.md](https://github.com/ToolAssisted-run/chimera-core-godot47/blob/main/docs/PLAN.md).
 
 ## Status
 
@@ -25,7 +25,8 @@ Core Manager lists it.
 
 - Godot 4.6 games written in GDScript, drawn with Godot's Compatibility
   renderer (OpenGL 3.3) on a software OpenGL inside the core (Mesa's
-  llvmpipe, made to generate the same code on every computer).
+  llvmpipe, which makes the same code on every computer with AVX2, and on
+  every computer when Drawing Code is Baseline).
 - Tried: Godot's "Dodge the Creeps" demo and the core's probe game, both
   exported with the Godot 4.6.3 editor. The sandboxed core and a plain native
   build agree on every picture, the sound and everything the game printed;
@@ -42,8 +43,8 @@ it. Files the game loads from beside its executable go in the project's
 
 ## Buttons and settings
 
-The keyboard, the mouse and one game controller; Frame Rate, Starting Clock
-and Godot's Log, as in [chimera-core-godot](https://github.com/ToolAssisted-run/chimera-core-godot#buttons-and-settings).
+The keyboard, the mouse and one game controller; Frame Rate, Starting Clock,
+Drawing Size, Drawing Code and Godot's Log, as in [chimera-core-godot47](https://github.com/ToolAssisted-run/chimera-core-godot47#buttons-and-settings).
 
 ## Building and testing
 

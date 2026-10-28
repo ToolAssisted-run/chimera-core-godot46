@@ -172,10 +172,31 @@ same equivalence "$work/pn.txt" "$work/pw.txt" "the probe: native = sandbox, $pf
 "$wbx" "$core" "$work/probe" --frames $pf "${probe_movie[@]}" --session-at 25 > "$work/ps.txt" 2> "$work/ps.err"
 same session "$work/ps.txt" "$work/pw.txt" "the probe saved at frame 25, between the two clicks, loaded into a new host = straight"
 
-has renderer "$work/pw.txt" "probe renderer=[llvmpipe (LLVM 18.1.8, 128 bits)] [4.5 (Core Profile) Mesa 24.0.9]" "the game draws on llvmpipe with 128-bit vectors (the pinned CPU) in the sandbox"
-has renderer "$work/pn.txt" "probe renderer=[llvmpipe (LLVM 18.1.8, 128 bits)] [4.5 (Core Profile) Mesa 24.0.9]" "and in the native build, whatever this computer's CPU"
-LP_NATIVE_VECTOR_WIDTH=256 "$native" "$work/probe" --frames 2 > "$work/pn256.txt" 2> /dev/null
-has renderer "$work/pn256.txt" "128 bits" "the native build ignores this computer's environment (LP_NATIVE_VECTOR_WIDTH=256 was set)"
+# Drawing Code (chimera issue 380): AVX2 by default (owner, 2026-10-28), so
+# on a computer with all of x86-64-v3 llvmpipe makes 256-bit code, and on one
+# without the pinned CPU's 128-bit code; Baseline asks for the 128-bit code
+# on any computer. Either way the game plays the same steps.
+bits=128
+if grep -qw avx2 /proc/cpuinfo && grep -qw fma /proc/cpuinfo && grep -qw bmi1 /proc/cpuinfo && grep -qw bmi2 /proc/cpuinfo &&
+   grep -qw movbe /proc/cpuinfo && grep -qw abm /proc/cpuinfo && grep -qw f16c /proc/cpuinfo; then
+	bits=256
+fi
+has renderer "$work/pw.txt" "probe renderer=[llvmpipe (LLVM 18.1.8, $bits bits)] [4.5 (Core Profile) Mesa 24.0.9]" "the game draws on llvmpipe with $bits-bit vectors in the sandbox (AVX2 by default, where this computer has it)"
+has renderer "$work/pn.txt" "probe renderer=[llvmpipe (LLVM 18.1.8, $bits bits)] [4.5 (Core Profile) Mesa 24.0.9]" "and in the native build"
+mkwork probebase "$root/tests/probe.pck" '{"drawingCode": "Baseline"}'
+"$wbx" "$core" "$work/probebase" --frames 2 > "$work/pbase.txt" 2> /dev/null
+has drawing-code "$work/pbase.txt" "probe renderer=[llvmpipe (LLVM 18.1.8, 128 bits)]" "Drawing Code Baseline: 128-bit code (the pinned CPU) in the sandbox, whatever this computer's CPU"
+LP_NATIVE_VECTOR_WIDTH=256 "$native" "$work/probebase" --frames 2 > "$work/pn256.txt" 2> /dev/null
+has renderer "$work/pn256.txt" "128 bits" "the native build ignores this computer's environment (LP_NATIVE_VECTOR_WIDTH=256 was set, Baseline asked for)"
+mkwork dtcbase "$root/tests/dodge-the-creeps.pck" '{"drawingCode": "Baseline"}'
+"$native" "$work/dtcbase" --frames $frames "${dtc_movie[@]}" > "$work/nbase.txt" 2> /dev/null
+"$wbx" "$core" "$work/dtcbase" --frames $frames "${dtc_movie[@]}" > "$work/wbase.txt" 2> /dev/null
+same drawing-code "$work/nbase.txt" "$work/wbase.txt" "Drawing Code Baseline: native = sandbox, every picture, the sound, the steps"
+if [ -n "$(value "$work/wbase.txt" stepsHash)" ] && [ "$(value "$work/wbase.txt" stepsHash)" = "$(value "$work/w.txt" stepsHash)" ]; then
+	pass "drawing-code: Baseline plays the same steps as the default ($bits-bit code here)"
+else
+	fail "drawing-code: Baseline steps $(value "$work/wbase.txt" stepsHash), default $(value "$work/w.txt" stepsHash)"
+fi
 has clock "$work/pn.txt" "probe ready unix=946684800 date=2000-01-01T00:00:00 ticks=0" "the game starts on 2000-01-01, the default Starting Clock, at time 0"
 has clock "$work/pn.txt" "probe f=60 ticks=1000000 delta=0.016667 unix=946684801.000" "after 60 frames a second has gone by, and each frame is 1/60 s"
 GATE_STALL_US=30000 "$native" "$work/probe" --frames 60 "${probe_movie[@]}" > "$work/stall.txt" 2> /dev/null

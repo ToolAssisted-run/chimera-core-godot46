@@ -183,6 +183,17 @@ extern "C" int chimera_godot_drawing_percent() {
 	return drawing_percent;
 }
 
+// The "drawingCode" setting, asked by Mesa (waterbox/mesa-patches/0002) when
+// llvmpipe starts: AVX2, the default (owner, 2026-10-28), lets it make
+// x86-64-v3 code on a computer that has those instructions (chimera issue
+// 380); "Baseline", and a computer without them, the baseline x86-64's, the
+// same everywhere. A setting not given is the default.
+extern "C" int chimera_llvmpipe_avx2() {
+	char code[16] = "";
+	chimera_setting_str("drawingCode", code, sizeof code);
+	return String(code) == "Baseline" ? 0 : 1;
+}
+
 extern "C" void chimera_godot_max_picture(int *r_width, int *r_height) {
 	*r_width = max_picture_w;
 	*r_height = max_picture_h;

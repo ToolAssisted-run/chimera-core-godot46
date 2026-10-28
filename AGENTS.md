@@ -1,6 +1,6 @@
 # AGENTS.md - chimera-core-godot46
 
-The Godot 4.6.3 core: chimera-core-godot with Godot 4.6.3 pinned. Keep its
+The Godot 4.6.3 core: chimera-core-godot47 with Godot 4.6.3 pinned. Keep its
 `module/`, `waterbox/` and `tests/` the same files as the other Godot cores.
 
 The Godot Engine (4.6.3) as a Chimera core: Godot's export template built
@@ -45,8 +45,10 @@ for miniBox's sandbox with a Chimera module in it. The user brings a game's
   in `chimera_os` that is the same in both builds.
 - The native reference links the sandbox's math (`make-native-libm.sh`);
   never let it fall back to glibc's.
-- llvmpipe sees one CPU everywhere (mesa-patches/0001); nothing may give
-  Mesa or LLVM the host's CPU features or core count.
+- llvmpipe sees one CPU everywhere (mesa-patches/0001), but for the one
+  question patch 0002 asks when Drawing Code is AVX2 (owner, 2026-10-28):
+  does this computer have all of x86-64-v3. Nothing else may give Mesa or
+  LLVM the host's CPU features, and nothing its core count.
 - A change to `waterbox.config`'s buttons changes `chimera_core.cpp`'s table
   and `input-names.h` the same way, in the same order.
 - Every new test is broken on purpose once and seen to fail.

@@ -2,7 +2,7 @@
 /*  chimera_compat.h                                                      */
 /**************************************************************************/
 /* The one module builds against every Godot 4 version a Chimera core     */
-/* pins (chimera-core-godot and its siblings for older versions). What    */
+/* pins (chimera-core-godot47 and its siblings for older versions). What  */
 /* differs between those versions is answered here, by version.           */
 /**************************************************************************/
 

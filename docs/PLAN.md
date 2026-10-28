@@ -1,6 +1,6 @@
 # The Godot 4.6 core: plan and log
 
-This core is [chimera-core-godot](https://github.com/ToolAssisted-run/chimera-core-godot)
+This core is [chimera-core-godot47](https://github.com/ToolAssisted-run/chimera-core-godot47)
 with Godot 4.6.3 pinned in place of 4.7.2. Every decision about how a Godot
 game becomes a Chimera machine is in that repository's docs/PLAN.md, and the
 code (`module/chimera`, `waterbox/`, `tests/`) is the same files; a change
@@ -15,7 +15,7 @@ beside the 4.7 one, each its own package, repository and roster entry (one
 Chimera package holds one engine). The 4.4 core also takes games of 4.0 to
 4.3, for which there is no core.
 
-## What differs from the 4.7 core
+## What differs from the Godot 4.7 core
 
 - `module/chimera/chimera_compat.h`: before 4.7 the display server's enums
   are DisplayServer's own (4.7 moved them to DisplayServerEnums).
@@ -35,7 +35,7 @@ Chimera package holds one engine). The 4.4 core also takes games of 4.0 to
 
 ## Drawing Size (2026-10-28, chimera issue 380)
 
-As the 4.7 core's (its docs/PLAN.md): the Drawing Size setting (100%, 75%,
+As the Godot 4.7 core's (its docs/PLAN.md): the Drawing Size setting (100%, 75%,
 50% or 25%) gives the game a window of that share of the size it asks for,
 and the game draws at that size, a quarter of the pixels at 50%. Godot draws
 every pixel on the CPU here, so a game that stretches its picture to its
@@ -43,3 +43,14 @@ window runs about twice as fast or more; one with a fixed size of its own is
 not made faster. It is part of the machine: a movie needs the same value.
 The test script checks that at 50% Dodge the Creeps draws 240x360 and plays
 the same steps, native and in the sandbox.
+
+## Drawing Code: AVX2 where the computer has it (user-decided, 2026-10-28, chimera issue 380)
+
+As the Godot 4.7 core's (its docs/PLAN.md): the Drawing Code setting, AVX2 by
+default, lets llvmpipe make x86-64-v3 code (256-bit vectors) on a computer
+that has all of it (mesa-patches/0002), the same on every such computer;
+Baseline, and a computer without it, keep the baseline of patch 0001. The
+game plays the same either way. The test script checks the 256-bit code in
+the sandbox and natively, native = sandbox with it, and that Baseline still
+makes 128-bit code and plays the same steps.
+
