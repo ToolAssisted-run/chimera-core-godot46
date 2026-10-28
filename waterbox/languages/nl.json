@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "De machine draait al.",
+		"error.godot_not_4": "Dit spel is gemaakt met Godot %1.%2.%3. De Godot-cores draaien spellen van Godot 4 (4.%4 tot 4.%5).",
+		"error.godot_older": "Dit spel is gemaakt met Godot %1.%2.%3: open het met de core Godot 4.%4, die ook spellen van oudere versies van Godot 4 draait.",
+		"error.godot_other": "Dit spel is gemaakt met Godot %1.%2.%3: open het met de core Godot 4.%4 (deze draait spellen van Godot 4.%5).",
+		"error.godot_too_new": "Dit spel is gemaakt met Godot %1.%2.%3, nieuwer dan elke Godot-core (de nieuwste draait spellen van Godot 4.%4).",
+		"error.no_main_scene": "Godot kon dit spel niet starten: de hoofdscène is niet geladen.",
+		"error.pack_not_opened": "Het pakket van het spel (%1) kon niet worden geopend.",
+		"error.save_bad_name": "De zip met opgeslagen gegevens %1 bevat %2, dat geen naam in user:// is.",
+		"error.save_not_zip": "Het bestand met opgeslagen gegevens %1 is geen zip die Godot kan lezen.",
+		"error.save_unreadable": "Het bestand met opgeslagen gegevens %1 kon niet worden gelezen.",
+		"error.setup": "Godot kon dit spel niet starten (installatiefout %1). Is dit het .pck van een spel van Godot 4?",
+		"error.setup2": "Godot kon dit spel niet starten (installatiefout setup2 %1).",
+		"setting.drawingcode": "Tekencode",
+		"setting.drawingcode.about": "Welke instructies van de processor de code die de beelden tekent mag gebruiken. AVX2 (de standaard): ook die van de meeste pc's die sinds 2013 zijn gemaakt, die sneller tekenen; op een computer zonder die wordt de basisset gebruikt, en de beelden kunnen dan iets afwijken van die op een andere computer. Basis: alleen de instructies die elke 64-bits pc heeft, zodat een movie op elke computer dezelfde beelden geeft. Het spel zelf speelt op beide manieren hetzelfde.",
+		"setting.drawingsize": "Tekenformaat",
+		"setting.drawingsize.about": "Hoe groot een beeld het spel tekent, tegenover het formaat dat het vraagt. Godot tekent hier elke pixel op de processor, dus een spel dat op 50% wordt getekend, heeft een kwart van de pixels en draait tot ongeveer vier keer sneller. Het beeld wordt op hetzelfde formaat getoond, zachter. Het spel krijgt te horen dat zijn venster dat formaat heeft: een spel dat zijn beeld uitrekt tot zijn venster (de meeste) tekent kleiner, een spel dat op een vast eigen formaat tekent wordt niet sneller. Het hoort bij de machine, dus een movie heeft dezelfde waarde nodig.",
+		"setting.framerate": "Framesnelheid",
+		"setting.framerate.about": "Hoeveel frames één seconde van de speeltijd van het spel vormen. Godot draait per frame één stap van het spel en vertelt het spel dat 1/snelheid van een seconde voorbij is, alsof zijn beeldscherm met deze snelheid ververst. 60 is waar de meeste spellen voor zijn gemaakt. Het hoort bij de machine, dus een movie heeft dezelfde waarde nodig.",
+		"setting.starttime": "Startklok",
+		"setting.starttime.about": "De datum en tijd die het spel leest (Time.get_unix_time_from_system en de datumfuncties) wanneer het start, in seconden sinds 1970 (Unix-tijd), in UTC; daarna loopt het mee met de frames. De standaard is 1 januari 2000. Dit is een instelling en niet de klok van je computer, zodat een movie op elke dag hetzelfde afspeelt. Het hoort bij de machine, dus een movie heeft dezelfde waarde nodig.",
+		"setting.verbose": "Logboek van Godot",
+		"setting.verbose.about": "'true' start Godot met --verbose, zodat zijn logboek (Tools > Export Core Log, of de console) zegt wat het laadt en tekent. Het verandert niets aan het spel.",
+		"slot.files": "Andere bestanden naast het spel",
+		"slot.files.help": "Bestanden die het spel opent uit de map waar zijn programma in staat, onder de namen die het vraagt: een tweede .pck die het laadt (downloadbare inhoud, een mod), of gegevens die het naast zichzelf leest. Een spel dat niets anders laadt, heeft hier niets nodig.",
+		"slot.pack": "Spel",
+		"slot.pack.help": "Het .pck-bestand van het spel, dat een geëxporteerd Godot-spel naast zijn programma bewaart (Game.exe en Game.pck). Een spel dat als één bestand is geëxporteerd, heeft het .pck in zijn programma: geef dan het programma (.exe of .x86_64) op.",
+		"slot.savedata": "Opgeslagen gegevens",
+		"slot.savedata.help": "Wat het spel bewaart in user:// (zijn opslagen en instellingen), zoals Emulator > Export Save Data het schreef: elk bestand onder zijn eigen naam, of de .zip die de export van meerdere maakt. Ze worden in user:// gezet voordat het spel start, zodat het spel ze als zijn eigen vindt. Een bestand van de export dat in een map van user:// stond, gaat alleen vanuit de .zip terug in die map."
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "Makine zaten çalışıyor.",
+		"error.godot_not_4": "Bu oyun Godot %1.%2.%3 ile yapıldı. Godot çekirdekleri Godot 4 oyunlarını çalıştırır (4.%4 ila 4.%5).",
+		"error.godot_older": "Bu oyun Godot %1.%2.%3 ile yapıldı: onu Godot 4.%4 çekirdeğiyle açın; bu, daha eski Godot 4 sürümlerinin oyunlarını da çalıştırır.",
+		"error.godot_other": "Bu oyun Godot %1.%2.%3 ile yapıldı: onu Godot 4.%4 çekirdeğiyle açın (bu, Godot 4.%5 oyunlarını çalıştırır).",
+		"error.godot_too_new": "Bu oyun Godot %1.%2.%3 ile yapıldı; her Godot çekirdeğinden daha yeni (en yenisi Godot 4.%4 oyunlarını çalıştırır).",
+		"error.no_main_scene": "Godot bu oyunu başlatamadı: ana sahnesi yüklenmedi.",
+		"error.pack_not_opened": "Oyunun paketi (%1) açılamadı.",
+		"error.save_bad_name": "Kayıt verisi zip'i %1, user:// içinde bir ad olmayan %2'yi içeriyor.",
+		"error.save_not_zip": "Kayıt verisi dosyası %1, Godot'un okuyabileceği bir zip değil.",
+		"error.save_unreadable": "Kayıt verisi dosyası %1 okunamadı.",
+		"error.setup": "Godot bu oyunu başlatamadı (kurulum hatası %1). Bu bir Godot 4 oyununun .pck dosyası mı?",
+		"error.setup2": "Godot bu oyunu başlatamadı (setup2 hatası %1).",
+		"setting.drawingcode": "Çizim Kodu",
+		"setting.drawingcode.about": "Resimleri çizen kodun CPU'nun hangi komutlarını kullanabileceği. AVX2 (varsayılan): 2013'ten beri yapılmış çoğu PC'nin komutları da dahil, daha hızlı çizer; bunlar olmayan bir bilgisayarda temel küme kullanılır ve resimler bir başka bilgisayarınkinden bir tona kadar farklı olabilir. Temel: her 64 bit PC'nin sahip olduğu komutlar yalnızca; böylece bir film her bilgisayarda aynı resimleri verir. Oyunun kendisi her iki durumda da aynı oynar.",
+		"setting.drawingsize": "Çizim Boyutu",
+		"setting.drawingsize.about": "Oyunun ne kadar büyük bir resim çizdiği, istediği boyuta karşı. Godot burada her pikseli CPU'da çizer; bu yüzden yüzde 50'de çizilen bir oyun piksellerin dörtte birine sahiptir ve yaklaşık dört kat hızlı çalışabilir. Resim aynı boyutta, daha yumuşak gösterilir. Oyuna penceresinin o boyutta olduğu söylenir: resmini penceresine gerene (çoğu) daha küçük çizer; kendi sabit boyutunda çizenin hızı artmaz. Makinenin bir parçasıdır, bu yüzden bir film aynı değeri ister.",
+		"setting.framerate": "Kare Hızı",
+		"setting.framerate.about": "Oyunun zamanının bir saniyesini kaç kare yapar. Godot her karede oyunun bir adımını çalıştırır ve oyuna 1/hız saniyenin geçtiğini söyler; sanki monitörü bu hızda yeniliyormuş gibi. 60, çoğu oyunun yapıldığı hızdır. Makinenin bir parçasıdır, bu yüzden bir film aynı değeri ister.",
+		"setting.starttime": "Başlangıç Saati",
+		"setting.starttime.about": "Oyunun başladığında okuduğu tarih ve saat (Time.get_unix_time_from_system ve tarih işlevleri), 1970'ten itibaren saniye olarak (Unix zamanı), UTC'de; sonra karelerle birlikte çalışır. Varsayılan 1 Ocak 2000'dir. Bu bir ayardır, bilgisayarınızın saati değil; böylece bir film herhangi bir günde aynı oynar. Makinenin bir parçasıdır, bu yüzden bir film aynı değeri ister.",
+		"setting.verbose": "Godot'un Günlüğü",
+		"setting.verbose.about": "'true', Godot'u --verbose ile başlatır; böylece günlüğü (Tools > Export Core Log ya da konsol), neyi yüklediğini ve çizdiğini söyler. Oyunda hiçbir şeyi değiştirmez.",
+		"slot.files": "Oyunun yanındaki öteki dosyalar",
+		"slot.files.help": "Oyunun çalıştırılabilirinin klasöründen, istediği adlarla açtığı dosyalar: yüklediği ikinci bir .pck (indirilebilir içerik, bir mod) ya da kendi yanındaki veriler. Başka bir şey yüklemeyen bir oyun burada hiçbir şeye ihtiyaç duymaz.",
+		"slot.pack": "Oyun",
+		"slot.pack.help": "Oyunun .pck dosyası; dışa aktarılmış bir Godot oyununun çalıştırılabilirinin yanında tuttuğu dosya (Game.exe ve Game.pck). Tek dosya olarak dışa aktarılmış bir oyunun .pck'si çalıştırılabilirinin içindedir: o zaman bunun yerine çalıştırılabilirini (.exe ya da .x86_64) verin.",
+		"slot.savedata": "Kayıt verisi",
+		"slot.savedata.help": "Oyunun user:// içinde tuttukları (kayıtları ve ayarları), Emulator > Export Save Data'nın yazdığı gibi: her dosya kendi adıyla, ya da birkaçını bir araya getiren dışa aktarımın .zip'i. Oyun başlamadan önce user:// içine konur, böylece oyun onları kendininmiş gibi bulur. Dışa aktarımda user:// içindeki bir klasörde olan bir dosya, yalnızca .zip'ten o klasöre geri döner."
+	}
+}

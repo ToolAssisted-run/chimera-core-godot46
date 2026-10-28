@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "機器已在運行。",
+		"error.godot_not_4": "此遊戲是以 Godot %1.%2.%3 製作的。Godot 核心執行 Godot 4 的遊戲(4.%4 至 4.%5)。",
+		"error.godot_older": "此遊戲是以 Godot %1.%2.%3 製作的:請用 Godot 4.%4 核心開啟,它也能執行較舊的 Godot 4 版本遊戲。",
+		"error.godot_other": "此遊戲是以 Godot %1.%2.%3 製作的:請用 Godot 4.%4 核心開啟(本核心執行 Godot 4.%5 的遊戲)。",
+		"error.godot_too_new": "此遊戲是以 Godot %1.%2.%3 製作的,比所有 Godot 核心都新(最新的核心執行 Godot 4.%4 的遊戲)。",
+		"error.no_main_scene": "Godot 無法啟動此遊戲:其主場景未能載入。",
+		"error.pack_not_opened": "無法開啟遊戲的套件(%1)。",
+		"error.save_bad_name": "存檔資料 zip %1 含有 %2,它不是 user:// 中的名稱。",
+		"error.save_not_zip": "存檔資料檔案 %1 不是 Godot 能讀取的 zip。",
+		"error.save_unreadable": "無法讀取存檔資料檔案 %1。",
+		"error.setup": "Godot 無法啟動此遊戲(設定錯誤 %1)。這是 Godot 4 遊戲的 .pck 嗎?",
+		"error.setup2": "Godot 無法啟動此遊戲(設定錯誤 2 %1)。",
+		"setting.drawingcode": "繪圖程式碼",
+		"setting.drawingcode.about": "繪製畫面的程式碼可以使用 CPU 的哪些指令。AVX2(預設):也包括 2013 年以後製作的大多數電腦的指令,繪製較快;在沒有它們的電腦上會使用基本指令集,畫面可能與另一台電腦略有不同。基本:只使用每台 64 位元電腦都有的指令,因此錄影在任何電腦上的畫面都相同。遊戲本身無論哪種都以相同方式運行。",
+		"setting.drawingsize": "繪圖大小",
+		"setting.drawingsize.about": "遊戲繪製的畫面大小,相對於它所要求的大小。Godot 在此以 CPU 繪製每個像素,因此以 50% 繪製的遊戲只有四分之一的像素,運行速度最多快約四倍。畫面以相同大小顯示,較柔和。遊戲會被告知其視窗為該大小:會把畫面拉伸至視窗的遊戲(多數)會繪製得較小;以自己固定大小繪製的遊戲則不會變快。它屬於機器的一部分,因此錄影需要相同的值。",
+		"setting.framerate": "影格速率",
+		"setting.framerate.about": "每秒鐘遊戲時間包含多少個影格。Godot 每個影格執行遊戲的一步,並告訴遊戲已經過了 1/速率 秒,如同其顯示器以此速率更新。60 是大多數遊戲所設計的速率。它屬於機器的一部分,因此錄影需要相同的值。",
+		"setting.starttime": "開機時鐘",
+		"setting.starttime.about": "遊戲開始時讀取的日期與時間(Time.get_unix_time_from_system 與日期函式),以 1970 年起的秒數計(Unix 時間),採 UTC;之後隨影格運行。預設為 2000 年 1 月 1 日。這是一個設定,而不是你電腦的時鐘,使錄影在任何一天播放都相同。它屬於機器的一部分,因此錄影需要相同的值。",
+		"setting.verbose": "Godot 的記錄",
+		"setting.verbose.about": "「true」以 --verbose 啟動 Godot,使其記錄(「工具 > 匯出核心記錄」或主機控制台)說明它載入與繪製了什麼。它不改變遊戲的任何內容。",
+		"slot.files": "遊戲旁的其他檔案",
+		"slot.files.help": "遊戲從其執行檔所在的資料夾開啟的檔案,使用它要求的名稱:它載入的第二個 .pck(可下載內容、模組),或它從自身旁邊讀取的資料。不載入其他東西的遊戲不需要這裡的任何內容。",
+		"slot.pack": "遊戲",
+		"slot.pack.help": "遊戲的 .pck 檔。已匯出的 Godot 遊戲會把它與其執行檔放在一起(Game.exe 與 Game.pck)。匯出為單一檔案的遊戲,其 .pck 位於執行檔之內:此時請改給執行檔(.exe 或 .x86_64)。",
+		"slot.savedata": "存檔",
+		"slot.savedata.help": "遊戲在 user:// 中保存的內容(其存檔與設定),由「模擬器 > 匯出存檔資料」寫出:每個檔案以其自己的名稱,或匯出時把多個檔案合成的 .zip。它們會在遊戲開始前放入 user://,使遊戲把它們當作自己的。匯出中原本位於 user:// 某個資料夾內的檔案,只會從 .zip 放回該資料夾。"
+	}
+}

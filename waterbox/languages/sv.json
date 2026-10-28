@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "Maskinen kör redan.",
+		"error.godot_not_4": "Det här spelet är gjort med Godot %1.%2.%3. Godot-kärnorna kör Godot 4-spel (4.%4 till 4.%5).",
+		"error.godot_older": "Det här spelet är gjort med Godot %1.%2.%3: öppna det med Godot 4.%4-kärnan, som också kör Godot 4-spel från äldre versioner.",
+		"error.godot_other": "Det här spelet är gjort med Godot %1.%2.%3: öppna det med Godot 4.%4-kärnan (den här kör Godot 4.%5-spel).",
+		"error.godot_too_new": "Det här spelet är gjort med Godot %1.%2.%3, nyare än alla Godot-kärnor (den nyaste kör Godot 4.%4-spel).",
+		"error.no_main_scene": "Godot kunde inte starta det här spelet: dess huvudscen laddades inte.",
+		"error.pack_not_opened": "Spelets paket (%1) kunde inte öppnas.",
+		"error.save_bad_name": "Zip-filen för sparad data %1 innehåller %2, som inte är ett namn i user://.",
+		"error.save_not_zip": "Filen för sparad data %1 är inte en zip-fil som Godot kan läsa.",
+		"error.save_unreadable": "Filen för sparad data %1 kunde inte läsas.",
+		"error.setup": "Godot kunde inte starta det här spelet (installationsfel %1). Är det här en Godot 4-spelfils .pck?",
+		"error.setup2": "Godot kunde inte starta det här spelet (installationsfel 2, %1).",
+		"setting.drawingcode": "Ritkod",
+		"setting.drawingcode.about": "Vilka av processorns instruktioner koden som ritar bilderna får använda. AVX2 (standard): också de som de flesta datorer från 2013 och senare har, som ritar snabbare; på en dator utan dem används baslinjen, och bilderna kan då skilja sig en nyans från en annan dators. Baslinje: bara de som varje 64-bitars dator har, så att en inspelning ger samma bilder på vilken dator som helst. Spelet i sig spelas likadant i båda fallen.",
+		"setting.drawingsize": "Ritstorlek",
+		"setting.drawingsize.about": "Hur stor bild spelet ritar, jämfört med storleken det begär. Godot ritar varje pixel på processorn här, så ett spel som ritas på 50 % har en fjärdedel av pixlarna och körs upp till ungefär fyra gånger snabbare. Bilden visas i samma storlek, mjukare. Spelet får veta att dess fönster har den storleken: ett som sträcker sin bild till fönstret (de flesta) ritar mindre, och ett som ritar i en egen fast storlek görs inte snabbare. Den hör till maskinen, så en inspelning behöver samma värde.",
+		"setting.framerate": "Bildfrekvens",
+		"setting.framerate.about": "Hur många bildrutor som gör en sekund av spelets tid. Godot kör ett steg av spelet per bildruta och säger till spelet att en del av en sekund av rate:n har gått, som om dess bildskärm uppdaterades i den takten. 60 är vad de flesta spel är gjorda för. Den hör till maskinen, så en inspelning behöver samma värde.",
+		"setting.starttime": "Startklocka",
+		"setting.starttime.about": "Datum och tid som spelet läser (Time.get_unix_time_from_system och datumfunktionerna) när det startar, i sekunder sedan 1970 (Unixtid), i UTC; den går sedan med bildrutorna. Standardvärdet är den 1 januari 2000. Det här är en inställning, och inte din dators klocka, så att en inspelning spelas upp likadant vilken dag som helst. Den hör till maskinen, så en inspelning behöver samma värde.",
+		"setting.verbose": "Godots logg",
+		"setting.verbose.about": "'true' startar Godot med --verbose, så att dess logg (Verktyg > Exportera kärnloggen, eller konsolen) säger vad den läser in och ritar. Det ändrar ingenting i spelet.",
+		"slot.files": "Andra filer bredvid spelet",
+		"slot.files.help": "Filer som spelet öppnar från mappen där dess körbara fil ligger, under de namn det begär: en andra .pck som det läser in (laddningsbart innehåll, en modifikation), eller data det läser bredvid sig själv. Ett spel som inte läser in något annat behöver inget här.",
+		"slot.pack": "Spel",
+		"slot.pack.help": "Spelets .pck-fil, som ett exporterat Godot-spel har bredvid sin körbara fil (Game.exe och Game.pck). Ett spel exporterat som en enda fil har .pck inuti sin körbara fil: ange då i stället den körbara filen (.exe eller .x86_64).",
+		"slot.savedata": "Sparad data",
+		"slot.savedata.help": "Det spelet behåller i user:// (sina sparningar och inställningar), så som Emulator > Exportera sparad data skrev det: var fil under sitt eget namn, eller den .zip som exporten gör av flera. De läggs i user:// innan spelet startar, så att spelet hittar dem som sina egna. En fil i exporten som låg i en mapp i user:// läggs tillbaka i mappen bara från .zip-filen."
+	}
+}

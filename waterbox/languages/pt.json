@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "A máquina já está em execução.",
+		"error.godot_not_4": "Este jogo foi feito com o Godot %1.%2.%3. Os núcleos Godot executam jogos do Godot 4 (4.%4 a 4.%5).",
+		"error.godot_older": "Este jogo foi feito com o Godot %1.%2.%3: abra-o com o núcleo Godot 4.%4, que também executa jogos de versões mais antigas do Godot 4.",
+		"error.godot_other": "Este jogo foi feito com o Godot %1.%2.%3: abra-o com o núcleo Godot 4.%4 (este executa jogos do Godot 4.%5).",
+		"error.godot_too_new": "Este jogo foi feito com o Godot %1.%2.%3, mais novo do que todos os núcleos Godot (o mais novo executa jogos do Godot 4.%4).",
+		"error.no_main_scene": "O Godot não pôde iniciar este jogo: sua cena principal não carregou.",
+		"error.pack_not_opened": "Não foi possível abrir o pacote do jogo (%1).",
+		"error.save_bad_name": "O zip de dados salvos %1 contém %2, que não é um nome em user://.",
+		"error.save_not_zip": "O arquivo de dados salvos %1 não é um zip que o Godot possa ler.",
+		"error.save_unreadable": "Não foi possível ler o arquivo de dados salvos %1.",
+		"error.setup": "O Godot não pôde iniciar este jogo (erro de setup %1). Este é um .pck de um jogo do Godot 4?",
+		"error.setup2": "O Godot não pôde iniciar este jogo (erro setup2 %1).",
+		"setting.drawingcode": "Código de desenho",
+		"setting.drawingcode.about": "Quais instruções do processador o código que desenha as imagens pode usar. AVX2 (o padrão): também as da maioria dos PCs feitos desde 2013, que desenham mais rápido; num computador sem elas usa-se a base, e as imagens podem então diferir das de outro computador por um tom. Base: só as que todo PC de 64 bits tem, então um filme dá as mesmas imagens em qualquer computador. O jogo em si roda igual de qualquer forma.",
+		"setting.drawingsize": "Tamanho do desenho",
+		"setting.drawingsize.about": "Quão grande é a imagem que o jogo desenha, em relação ao tamanho que ele pede. O Godot desenha cada pixel na CPU aqui, então um jogo desenhado a 50% tem um quarto dos pixels e roda até cerca de quatro vezes mais rápido. A imagem é mostrada no mesmo tamanho, porém mais suave. O jogo é informado de que sua janela tem esse tamanho: um que estica a imagem até a janela (a maioria) desenha menor; um que desenha num tamanho fixo próprio não fica mais rápido. Faz parte da máquina, então um filme precisa do mesmo valor.",
+		"setting.framerate": "Taxa de quadros",
+		"setting.framerate.about": "Quantos quadros formam um segundo do tempo do jogo. O Godot executa um passo do jogo por quadro e diz ao jogo que passou 1/taxa de segundo, como se o monitor dele atualizasse nesta taxa. 60 é o que a maioria dos jogos foi feita para. Faz parte da máquina, então um filme precisa do mesmo valor.",
+		"setting.starttime": "Relógio inicial",
+		"setting.starttime.about": "A data e a hora que o jogo lê ao iniciar (Time.get_unix_time_from_system e as funções de data), em segundos desde 1970 (hora Unix), em UTC; depois ele funciona junto com os quadros. O padrão é 1º de janeiro de 2000. Isto é uma configuração, e não o relógio do seu computador, para que um filme reproduza igual em qualquer dia. Faz parte da máquina, então um filme precisa do mesmo valor.",
+		"setting.verbose": "Registro do Godot",
+		"setting.verbose.about": "'true' inicia o Godot com --verbose, para que o seu registro (Ferramentas > Exportar registro do núcleo, ou o console) diga o que ele carrega e desenha. Não muda nada no jogo.",
+		"slot.files": "Outros arquivos ao lado do jogo",
+		"slot.files.help": "Arquivos que o jogo abre da pasta onde está o seu executável, com os nomes que pede: um segundo .pck que ele carrega (conteúdo para baixar, um mod), ou dados que lê ao seu lado. Um jogo que não carrega mais nada não precisa de nada aqui.",
+		"slot.pack": "Jogo",
+		"slot.pack.help": "O arquivo .pck do jogo, que um jogo Godot exportado guarda ao lado do seu executável (Game.exe e Game.pck). Um jogo exportado como um arquivo único tem o .pck dentro do executável: então informe o executável (.exe ou .x86_64) no lugar.",
+		"slot.savedata": "Dados salvos",
+		"slot.savedata.help": "O que o jogo guarda em user:// (seus saves e configurações), como Emulador > Exportar dados salvos gravou: cada arquivo com o seu próprio nome, ou o .zip que a exportação faz de vários. Eles são colocados em user:// antes de o jogo começar, para que o jogo os encontre como seus. Um arquivo da exportação que estava numa pasta de user:// volta a essa pasta só pelo .zip."
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "Stroj už běží.",
+		"error.godot_not_4": "Tato hra je vytvořena v Godot %1.%2.%3. Jádra Godot spouštějí hry Godot 4 (4.%4 až 4.%5).",
+		"error.godot_older": "Tato hra je vytvořena v Godot %1.%2.%3: otevři ji jádrem Godot 4.%4, které spustí i hry starších verzí Godot 4.",
+		"error.godot_other": "Tato hra je vytvořena v Godot %1.%2.%3: otevři ji jádrem Godot 4.%4 (toto jádro spouští hry Godot 4.%5).",
+		"error.godot_too_new": "Tato hra je vytvořena v Godot %1.%2.%3, novější než každé jádro Godot (nejnovější spouští hry Godot 4.%4).",
+		"error.no_main_scene": "Godot nemohl tuto hru spustit: její hlavní scéna se nenačetla.",
+		"error.pack_not_opened": "Balíček hry (%1) se nepodařilo otevřít.",
+		"error.save_bad_name": "Zip uložených dat %1 obsahuje %2, což není název v user://.",
+		"error.save_not_zip": "Soubor uložených dat %1 není zip, který Godot umí číst.",
+		"error.save_unreadable": "Soubor uložených dat %1 se nepodařilo přečíst.",
+		"error.setup": "Godot nemohl tuto hru spustit (chyba nastavení %1). Je to .pck hry Godot 4?",
+		"error.setup2": "Godot nemohl tuto hru spustit (chyba setup2 %1).",
+		"setting.drawingcode": "Kód kreslení",
+		"setting.drawingcode.about": "Které instrukce procesoru smí kód, který kreslí obrazy, používat. AVX2 (výchozí): také ty, které má většina počítačů vyrobených od roku 2013, a ty kreslí rychleji; na počítači bez nich se použije základní sada a obrazy se pak mohou od obrazů jiného počítače lišit o odstín. Základní: jen ty, které má každý 64bitový PC, takže film dává stejné obrazy na kterémkoli počítači. Hra sama se hraje stejně v obou případech.",
+		"setting.drawingsize": "Velikost kreslení",
+		"setting.drawingsize.about": "Jak velký obraz hra kreslí, proti velikosti, kterou žádá. Godot tu kreslí každý pixel na procesoru, takže hra kreslená na 50 % má čtvrtinu pixelů a běží až asi čtyřikrát rychleji. Obraz se zobrazí ve stejné velikosti, ale měkčí. Hra se dozví, že její okno má tuto velikost: ta, která roztáhne svůj obraz na okno (většina), se pak kreslí menší; ta, která kreslí na pevnou vlastní velikost, se nezrychlí. Je součástí stroje, takže film potřebuje stejnou hodnotu.",
+		"setting.framerate": "Snímková frekvence",
+		"setting.framerate.about": "Kolik snímků dělá sekundu herního času. Godot provede jeden krok hry na snímek a řekne hře, že uplynulo 1/frekvence sekundy, jako by její monitor obnovoval touto frekvencí. 60 je to, pro co je většina her dělána. Je součástí stroje, takže film potřebuje stejnou hodnotu.",
+		"setting.starttime": "Počáteční hodiny",
+		"setting.starttime.about": "Datum a čas, které hra přečte (Time.get_unix_time_from_system a funkce data), když začne, v sekundách od roku 1970 (Unix time), v UTC; pak běží se snímky. Výchozí je 1. ledna 2000. Je to nastavení, a ne hodiny tvého počítače, aby se film přehrál stejně kterýkoli den. Je součástí stroje, takže film potřebuje stejnou hodnotu.",
+		"setting.verbose": "Log Godotu",
+		"setting.verbose.about": "„true“ spustí Godot s --verbose, takže jeho log (Tools > Export Core Log, nebo konzole) říká, co načítá a kreslí. Hru to nemění.",
+		"slot.files": "Další soubory vedle hry",
+		"slot.files.help": "Soubory, které hra otevírá ze složky, ve které je její spustitelný soubor, pod názvy, které žádá: druhý .pck, který načte (obsah ke stažení, mod), nebo data, která čte vedle sebe. Hra, která nic dalšího nenačítá, tu nic nepotřebuje.",
+		"slot.pack": "Hra",
+		"slot.pack.help": "Soubor .pck hry, který exportovaná hra Godot drží vedle svého spustitelného souboru (Game.exe a Game.pck). Hra exportovaná jako jediný soubor má .pck uvnitř svého spustitelného souboru: pak dej místo něj spustitelný soubor (.exe nebo .x86_64).",
+		"slot.savedata": "Uložená data",
+		"slot.savedata.help": "Co hra drží v user:// (své uložené hry a nastavení), jak to zapsal Export Save Data: každý soubor pod svým vlastním názvem, nebo .zip, který export udělá z několika. Vrátí se do user:// před startem hry, takže je hra najde jako své. Soubor exportu, který byl v nějaké složce user://, se do ní vrátí jen ze zipu."
+	}
+}

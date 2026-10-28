@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "机器已在运行。",
+		"error.godot_not_4": "此游戏是用 Godot %1.%2.%3 制作的。Godot 核心运行 Godot 4 的游戏（4.%4 至 4.%5）。",
+		"error.godot_older": "此游戏是用 Godot %1.%2.%3 制作的：请用 Godot 4.%4 核心打开它，该核心也能运行较旧的 Godot 4 版本的游戏。",
+		"error.godot_other": "此游戏是用 Godot %1.%2.%3 制作的：请用 Godot 4.%4 核心打开它（本核心运行的是 Godot 4.%5 的游戏）。",
+		"error.godot_too_new": "此游戏是用 Godot %1.%2.%3 制作的，比所有 Godot 核心都新（最新的核心运行 Godot 4.%4 的游戏）。",
+		"error.no_main_scene": "Godot 无法启动此游戏：其主场景未能加载。",
+		"error.pack_not_opened": "无法打开游戏的包（%1）。",
+		"error.save_bad_name": "存档数据 zip %1 中含有 %2，而它不是 user:// 中的名称。",
+		"error.save_not_zip": "存档数据文件 %1 不是 Godot 能读取的 zip。",
+		"error.save_unreadable": "无法读取存档数据文件 %1。",
+		"error.setup": "Godot 无法启动此游戏（设置错误 %1）。它是 Godot 4 游戏的 .pck 吗？",
+		"error.setup2": "Godot 无法启动此游戏（设置错误 2 的 %1）。",
+		"setting.drawingcode": "绘制代码",
+		"setting.drawingcode.about": "绘制画面的代码可以使用 CPU 的哪些指令。AVX2（默认）：也使用大多数 2013 年以后制造的电脑所具有的指令，绘制更快；在没有这些指令的电脑上则使用基础指令集，画面可能与其他电脑相差一点点。Baseline：只使用每台 64 位电脑都具有的指令，因此录像在任何电脑上绘制的画面都相同。无论如何，游戏本身的运行结果都相同。",
+		"setting.drawingsize": "绘制尺寸",
+		"setting.drawingsize.about": "游戏绘制的画面有多大，相对于它所要求的尺寸。Godot 在此处在 CPU 上绘制每一个像素，因此以 50% 绘制的游戏只有四分之一的像素，运行速度最多可快约四倍。画面仍以相同的尺寸显示，但更模糊。游戏会被告知其窗口为该尺寸：会将画面拉伸到窗口大小的游戏（大多数）绘制的画面会更小；使用自己固定尺寸的游戏则不会因此变快。它属于机型的一部分，因此录像需要相同的值。",
+		"setting.framerate": "帧率",
+		"setting.framerate.about": "游戏时间中每秒有多少帧。Godot 每帧运行游戏的一步，并告诉游戏已过去了 1/帧率 秒，如同其显示器以此频率刷新一样。大多数游戏都是为 60 制作的。它属于机型的一部分，因此录像需要相同的值。",
+		"setting.starttime": "起始时钟",
+		"setting.starttime.about": "游戏启动时读取的日期和时间（Time.get_unix_time_from_system 及各日期函数），以自 1970 年起的秒数（Unix 时间，UTC 时区）表示；此后它随帧一起运行。默认为 2000 年 1 月 1 日。这是一项设置，而不是您电脑的时钟，因此录像在任何一天回放结果都相同。它属于机型的一部分，因此录像需要相同的值。",
+		"setting.verbose": "Godot 日志",
+		"setting.verbose.about": "“true”会以 --verbose 启动 Godot，使其日志（“工具 > 导出核心日志”，或控制台）记录它加载和绘制的内容。它不改变游戏的任何内容。",
+		"slot.files": "游戏旁的其他文件",
+		"slot.files.help": "游戏从其可执行文件所在的文件夹中打开的文件，使用它要求的名称：它加载的第二个 .pck（可下载内容、模组），或它在旁边读取的数据。不加载其他内容的游戏无需在此设置任何内容。",
+		"slot.pack": "游戏",
+		"slot.pack.help": "游戏的 .pck 文件，导出的 Godot 游戏将其与可执行文件放在一起（Game.exe 和 Game.pck）。导出为单个文件的游戏，其 .pck 位于可执行文件之内：此时请改为提供可执行文件（.exe 或 .x86_64）。",
+		"slot.savedata": "存档数据",
+		"slot.savedata.help": "游戏在 user:// 中保存的内容（其存档和设置），即由“模拟器 > 导出存档数据...”写出的内容：每个文件以其自身的名称保存，或导出时为多个文件生成的 .zip。它们会在游戏启动前放入 user://，使游戏将其视为自己的文件。导出时位于 user:// 某个文件夹中的文件，只有从 .zip 中才会放回该文件夹。"
+	}
+}

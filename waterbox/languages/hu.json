@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "A gép már fut.",
+		"error.godot_not_4": "Ezt a játékot a Godot %1.%2.%3 verziójával készítették. A Godot-magok a Godot 4 játékait futtatják (4.%4-tól 4.%5-ig).",
+		"error.godot_older": "Ezt a játékot a Godot %1.%2.%3 verziójával készítették: nyisd meg a Godot 4.%4 maggal, amely a régebbi Godot 4 verziók játékait is futtatja.",
+		"error.godot_other": "Ezt a játékot a Godot %1.%2.%3 verziójával készítették: nyisd meg a Godot 4.%4 maggal (ez a Godot 4.%5 játékokat futtatja).",
+		"error.godot_too_new": "Ezt a játékot a Godot %1.%2.%3 verziójával készítették, ez újabb, mint bármelyik Godot-mag (a legújabb a Godot 4.%4 játékokat futtatja).",
+		"error.no_main_scene": "A Godot nem tudta elindítani ezt a játékot: a főjelenete nem töltődött be.",
+		"error.pack_not_opened": "A játék csomagját (%1) nem lehetett megnyitni.",
+		"error.save_bad_name": "A mentési adat zip (%1) ezt tartalmazza: %2, ami nem név az user://-ben.",
+		"error.save_not_zip": "A(z) %1 mentési adatfájl nem olyan zip, amelyet a Godot olvasni tud.",
+		"error.save_unreadable": "A(z) %1 mentési adatfájlt nem lehetett beolvasni.",
+		"error.setup": "A Godot nem tudta elindítani ezt a játékot (beállítási hiba: %1). Godot 4 játék .pck fájlja ez?",
+		"error.setup2": "A Godot nem tudta elindítani ezt a játékot (setup2 hiba: %1).",
+		"setting.drawingcode": "Rajzolókód",
+		"setting.drawingcode.about": "A processzor mely utasításait használhatja a képek rajzolásához készült kód. Az AVX2 (az alapérték): a 2013 óta készült legtöbb PC utasításait is, amelyek gyorsabban rajzolnak; olyan számítógépen, amelyen nincsenek, az alapszint használódik, és a képek egy árnyalattal eltérhetnek más számítógépen látottól. Alapszint: csak azokat, amelyeket minden 64 bites PC tud, így a felvétel bármelyik számítógépen ugyanazokat a képeket adja. A játék maga mindkét esetben ugyanúgy fut.",
+		"setting.drawingsize": "Rajzolási méret",
+		"setting.drawingsize.about": "Mekkora képet rajzol a játék ahhoz képest, amekkorát kér. A Godot itt minden képpontot a processzoron rajzol, így az 50%-on rajzolt játék negyedannyi képpontot használ, és akár négyszer gyorsabban fut. A kép ugyanakkora méretben jelenik meg, lágyabban. A játék tudja, hogy az ablaka ekkora: amelyik az ablakához nyújtja a képét (a legtöbb), kisebben rajzol; amelyik a saját rögzített méretében rajzol, azt nem gyorsítja. A gép része, ezért a felvételhez ugyanez az érték kell.",
+		"setting.framerate": "Képkockasebesség",
+		"setting.framerate.about": "Hány képkocka tesz ki egy másodpercet a játék idejéből. A Godot egy lépést futtat a játékból képkockánként, és azt mondja a játéknak, hogy 1/sebesség másodperc telt el, mintha a monitora ilyen sebességgel frissülne. A legtöbb játékot 60-ra készítik. A gép része, ezért a felvételhez ugyanez az érték kell.",
+		"setting.starttime": "Kezdő óra",
+		"setting.starttime.about": "A dátum és idő, amelyet a játék olvas (Time.get_unix_time_from_system és a dátumfüggvények) indításkor, másodpercben 1970 óta (Unix-idő), UTC-ben; utána a képkockákkal fut. Az alapérték 2000. január 1. Ez egy beállítás, nem a számítógéped órája, hogy egy felvétel bármelyik napon ugyanúgy játszódjon vissza. A gép része, ezért a felvételhez ugyanez az érték kell.",
+		"setting.verbose": "A Godot naplója",
+		"setting.verbose.about": "A „true” a Godotot --verbose kapcsolóval indítja, így a naplója (Eszközök > A mag naplójának exportálása, vagy a konzol) megmondja, mit tölt be és mit rajzol. A játékot nem változtatja.",
+		"slot.files": "Egyéb fájlok a játék mellett",
+		"slot.files.help": "Fájlok, amelyeket a játék a futtatható fájlja mappájából nyit meg, a nevükön, amelyet kér: egy második .pck, amelyet betölt (letölthető tartalom, mod), vagy adatok, amelyeket a mellette olvas. Ha a játék mást nem tölt be, itt nincs szükség semmire.",
+		"slot.pack": "Játék",
+		"slot.pack.help": "A játék .pck fájlja, amelyet egy exportált Godot-játék a futtatható fájlja mellett tart (Game.exe és Game.pck). Az egyetlen fájlként exportált játék .pck-ja a futtatható fájlján belül van: akkor add meg helyette a futtatható fájlt (.exe vagy .x86_64).",
+		"slot.savedata": "Mentési adatok",
+		"slot.savedata.help": "Amit a játék az user://-ben tart (mentései és beállításai), az Emulátor > Mentési adatok exportálása... által írva: minden fájl a saját nevén, vagy az exportálás több fájlból készült .zip-je. Indulás előtt az user://-be kerülnek, így a játék a sajátjaként találja őket. Az exportálás egy user://-beli mappában lévő fájlja csak a .zip-ből kerül vissza a mappába."
+	}
+}

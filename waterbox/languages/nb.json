@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "Maskinen kjører allerede.",
+		"error.godot_not_4": "Dette spillet er laget med Godot %1.%2.%3. Godot-kjernene kjører Godot 4-spill (4.%4 til 4.%5).",
+		"error.godot_older": "Dette spillet er laget med Godot %1.%2.%3: åpne det med Godot 4.%4-kjernen, som også kjører eldre Godot 4-versjoner.",
+		"error.godot_other": "Dette spillet er laget med Godot %1.%2.%3: åpne det med Godot 4.%4-kjernen (denne kjører Godot 4.%5-spill).",
+		"error.godot_too_new": "Dette spillet er laget med Godot %1.%2.%3, nyere enn alle Godot-kjernene (den nyeste kjører Godot 4.%4-spill).",
+		"error.no_main_scene": "Godot kunne ikke starte dette spillet: hovedscenen ble ikke lastet.",
+		"error.pack_not_opened": "Spillets pakke (%1) kunne ikke åpnes.",
+		"error.save_bad_name": "Zip-filen med lagrede data %1 inneholder %2, som ikke er et navn i user://.",
+		"error.save_not_zip": "Filen med lagrede data %1 er ikke en zip-fil Godot kan lese.",
+		"error.save_unreadable": "Filen med lagrede data %1 kunne ikke leses.",
+		"error.setup": "Godot kunne ikke starte dette spillet (oppsettsfeil %1). Er dette en Godot 4-spills .pck?",
+		"error.setup2": "Godot kunne ikke starte dette spillet (oppsettsfeil2 %1).",
+		"setting.drawingcode": "Tegnekode",
+		"setting.drawingcode.about": "Hvilke av prosessorens instruksjoner koden som tegner bildene kan bruke. AVX2 (standard): også de fleste PC-er laget siden 2013 har dem, og de tegner raskere; på en datamaskin uten dem brukes grunnlinjen, og bildene kan da avvike litt fra en annen datamaskins. Grunnlinje: bare de instruksjonene hver 64-biters PC har, så en filmfil gir de samme bildene på hvilken som helst datamaskin. Spillet selv spiller likt uansett.",
+		"setting.drawingsize": "Tegnestørrelse",
+		"setting.drawingsize.about": "Hvor stort bilde spillet tegner, mot størrelsen det ber om. Godot tegner hver piksel på prosessoren her, så et spill tegnet på 50 % har en fjerdedel av pikslene og kjører opptil omtrent fire ganger raskere. Bildet vises i samme størrelse, mykere. Spillet får vite at vinduet er den størrelsen: ett som strekker bildet sitt til vinduet (de fleste) tegner mindre, ett som tegner i en fast størrelse av sin egen, blir ikke raskere. Den er en del av maskinen, så en filmfil trenger samme verdi.",
+		"setting.framerate": "Bildefrekvens",
+		"setting.framerate.about": "Hvor mange rammer som gjør ett sekund av spillets tid. Godot kjører ett steg av spillet per ramme og forteller spillet at 1/frekvens av et sekund er gått, som om skjermen oppdateres med denne frekvensen. 60 er det de fleste spill er laget for. Den er en del av maskinen, så en filmfil trenger samme verdi.",
+		"setting.starttime": "Startklokke",
+		"setting.starttime.about": "Datoen og klokkeslettet spillet leser (Time.get_unix_time_from_system og datofunksjonene) når det starter, i sekunder siden 1970 (Unix-tid), i UTC; den går deretter med rammene. Standarden er 1. januar 2000. Dette er en innstilling, og ikke datamaskinens klokke, så en filmfil spilles av likt på hvilken som helst dag. Den er en del av maskinen, så en filmfil trenger samme verdi.",
+		"setting.verbose": "Godots logg",
+		"setting.verbose.about": "'true' starter Godot med --verbose, så loggen (Verktøy > Eksporter kjernelogg, eller konsollen) sier hva den laster og tegner. Det endrer ingenting i spillet.",
+		"slot.files": "Andre filer ved siden av spillet",
+		"slot.files.help": "Filer spillet åpner fra mappen kjørbar-filen ligger i, under navnene det ber om: en annen .pck det laster (nedlastbart innhold, en modifikasjon), eller data det leser ved siden av seg selv. Et spill som ikke laster noe annet trenger ingenting her.",
+		"slot.pack": "Spill",
+		"slot.pack.help": "Spillets .pck-fil, som et eksportert Godot-spill har ved siden av den kjørbare filen (Game.exe og Game.pck). Et spill eksportert som én fil har .pck-filen inni den kjørbare filen: gi da den kjørbare filen (.exe eller .x86_64) i stedet.",
+		"slot.savedata": "Lagrede data",
+		"slot.savedata.help": "Det spillet holder i user:// (sine lagringer og innstillinger), slik Emulator > Eksporter lagrede data skrev det: hver fil under sitt eget navn, eller zip-filen eksporten lager av flere. De legges i user:// før spillet starter, så spillet finner dem som sine egne. En fil fra eksporten som lå i en mappe i user://, legges tilbake i den mappen bare fra zip-filen."
+	}
+}

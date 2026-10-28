@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "Kone on jo käynnissä.",
+		"error.godot_not_4": "Tämä peli on tehty Godotilla %1.%2.%3. Godot-ytimet ajavat Godot 4 -pelejä (4.%4-4.%5).",
+		"error.godot_older": "Tämä peli on tehty Godotilla %1.%2.%3: avaa se Godot 4.%4 -ytimellä, joka ajaa myös vanhempien Godot 4 -versioiden pelejä.",
+		"error.godot_other": "Tämä peli on tehty Godotilla %1.%2.%3: avaa se Godot 4.%4 -ytimellä (tämä ydin ajaa Godot 4.%5 -pelejä).",
+		"error.godot_too_new": "Tämä peli on tehty Godotilla %1.%2.%3, uudemmalla kuin yksikään Godot-ydin (uusin ajaa Godot 4.%4 -pelejä).",
+		"error.no_main_scene": "Godot ei voinut käynnistää tätä peliä: sen pääkohtausta ei ladattu.",
+		"error.pack_not_opened": "Pelin pakettia (%1) ei voitu avata.",
+		"error.save_bad_name": "Tallennustietojen zip %1 sisältää kohteen %2, joka ei ole nimi user://-kansiossa.",
+		"error.save_not_zip": "Tallennustiedosto %1 ei ole zip-tiedosto, jonka Godot voi lukea.",
+		"error.save_unreadable": "Tallennustiedostoa %1 ei voitu lukea.",
+		"error.setup": "Godot ei voinut käynnistää tätä peliä (asennusvirhe %1). Onko tämä Godot 4 -pelin .pck?",
+		"error.setup2": "Godot ei voinut käynnistää tätä peliä (setup2-virhe %1).",
+		"setting.drawingcode": "Piirtokoodi",
+		"setting.drawingcode.about": "Mitä suorittimen käskyjä kuvia piirtävä koodi saa käyttää. AVX2 (oletus): myös useimpien vuodesta 2013 lähtien tehtyjen tietokoneiden käskyt, jotka piirtävät nopeammin; tietokoneessa ilman niitä käytetään perustasoa, ja kuvat voivat silloin erota toisen tietokoneen kuvista hieman. Perustaso: vain ne käskyt, jotka jokaisella 64-bittisellä tietokoneella on, joten tallenne antaa samat kuvat millä tahansa tietokoneella. Peli itse toimii molemmilla tavoilla samalla tavalla.",
+		"setting.drawingsize": "Piirtokoko",
+		"setting.drawingsize.about": "Kuinka suuren kuvan peli piirtää verrattuna siihen kokoon, jonka se pyytää. Godot piirtää jokaisen pikselin tässä suorittimella, joten peli, joka piirretään 50 %:iin, saa neljänneksen pikseleistä ja käy jopa noin nelinkertaisesti nopeammin. Kuva näytetään samankokoisena, pehmeämpänä. Peli saa tiedon ikkunansa koosta: se, joka venyttää kuvansa ikkunaansa (useimmat), piirtää pienemmän, eikä se, joka piirtää omalla kiinteällä koollaan, nopeudu. Tämä kuuluu koneeseen, joten tallenne tarvitsee saman arvon.",
+		"setting.framerate": "Kehysnopeus",
+		"setting.framerate.about": "Kuinka monta kehystä tekee pelin ajasta sekunnin. Godot ajaa yhden pelin askeleen kehystä kohti ja kertoo pelille, että 1/nopeus sekuntia on kulunut, aivan kuin sen näyttö päivittyisi tällä nopeudella. 60 on se, mihin useimmat pelit on tehty. Tämä kuuluu koneeseen, joten tallenne tarvitsee saman arvon.",
+		"setting.starttime": "Alkukello",
+		"setting.starttime.about": "Päivä ja kellonaika, jonka peli lukee (Time.get_unix_time_from_system ja päivämääräfunktiot) käynnistyessään, sekunteina vuodesta 1970 (Unix-aika), UTC-aikana; se käy sitten kehysten mukana. Oletus on 1. tammikuuta 2000. Tämä on asetus eikä tietokoneesi kello, jotta tallenne toistuu samalla tavalla joka päivä. Tämä kuuluu koneeseen, joten tallenne tarvitsee saman arvon.",
+		"setting.verbose": "Godotin loki",
+		"setting.verbose.about": "'true' käynnistää Godotin komennolla --verbose, jotta sen loki (Työkalut > Vie ytimen loki tai konsoli) kertoo, mitä se lataa ja piirtää. Se ei muuta mitään pelissä.",
+		"slot.files": "Muut pelin viereiset tiedostot",
+		"slot.files.help": "Tiedostot, jotka peli avaa suoritettavansa kansiosta sen pyytämillä nimillä: toinen .pck, jonka se lataa (ladattava sisältö, modi), tai data, jota se lukee vierestään. Peli, joka ei lataa muuta, ei tarvitse tässä mitään.",
+		"slot.pack": "Peli",
+		"slot.pack.help": "Pelin .pck-tiedosto, jonka viety Godot-peli säilyttää suoritettavansa vieressä (Game.exe ja Game.pck). Peli, joka on viety yhtenä tiedostona, on .pck-tiedosto suoritettavan sisällä: anna silloin suoritettava tiedosto (.exe tai .x86_64).",
+		"slot.savedata": "Tallennustiedot",
+		"slot.savedata.help": "Se, mitä peli säilyttää user://-kansiossa (tallennuksensa ja asetuksensa), sellaisena kuin Emulaattori > Vie tallennustiedot kirjoitti sen: jokainen tiedosto omalla nimellään, tai viennin useista tiedostoista tekemä .zip. Ne laitetaan user://-kansioon ennen pelin alkua, joten peli löytää ne omikseen. Viennin tiedosto, joka oli user://-kansion alikansiossa, palautuu siihen kansioon vain .zip-tiedostosta."
+	}
+}

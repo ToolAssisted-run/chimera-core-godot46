@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "Máy đã đang chạy.",
+		"error.godot_not_4": "Trò chơi này được làm bằng Godot %1.%2.%3. Các lõi Godot chạy trò chơi Godot 4 (từ 4.%4 đến 4.%5).",
+		"error.godot_older": "Trò chơi này được làm bằng Godot %1.%2.%3: hãy mở nó bằng lõi Godot 4.%4, lõi này cũng chạy trò chơi của các phiên bản Godot 4 cũ hơn.",
+		"error.godot_other": "Trò chơi này được làm bằng Godot %1.%2.%3: hãy mở nó bằng lõi Godot 4.%4 (lõi này chạy trò chơi Godot 4.%5).",
+		"error.godot_too_new": "Trò chơi này được làm bằng Godot %1.%2.%3, mới hơn mọi lõi Godot (lõi mới nhất chạy trò chơi Godot 4.%4).",
+		"error.no_main_scene": "Godot không khởi động được trò chơi này: cảnh chính của nó không tải được.",
+		"error.pack_not_opened": "Không mở được gói (%1) của trò chơi.",
+		"error.save_bad_name": "Tệp zip dữ liệu lưu %1 chứa %2, không phải là tên trong user://.",
+		"error.save_not_zip": "Tệp dữ liệu lưu %1 không phải là zip mà Godot đọc được.",
+		"error.save_unreadable": "Không đọc được tệp dữ liệu lưu %1.",
+		"error.setup": "Godot không khởi động được trò chơi này (lỗi thiết lập %1). Đây có phải là tệp .pck của một trò chơi Godot 4 không?",
+		"error.setup2": "Godot không khởi động được trò chơi này (lỗi setup2 %1).",
+		"setting.drawingcode": "Mã vẽ",
+		"setting.drawingcode.about": "Mã vẽ hình được dùng những lệnh nào của CPU. AVX2 (mặc định): cũng gồm các lệnh của hầu hết máy tính cá nhân được làm từ năm 2013, chúng vẽ nhanh hơn; trên máy không có chúng thì dùng bộ lệnh nền, và hình ảnh khi đó có thể khác hình trên máy khác một chút. Baseline: chỉ các lệnh mà mọi máy tính 64 bit đều có, nên một bản ghi cho ra cùng hình ảnh trên mọi máy tính. Bản thân trò chơi chạy giống nhau trong cả hai trường hợp.",
+		"setting.drawingsize": "Kích thước vẽ",
+		"setting.drawingsize.about": "Trò chơi vẽ hình ảnh lớn đến mức nào, so với kích thước nó yêu cầu. Godot vẽ mọi điểm ảnh bằng CPU ở đây, nên một trò chơi vẽ ở 50% có một phần tư số điểm ảnh và chạy nhanh hơn tới khoảng bốn lần. Hình ảnh được hiển thị ở cùng kích thước, nhưng mềm hơn. Trò chơi được cho biết cửa sổ của nó có kích thước đó: một trò kéo giãn hình ảnh theo cửa sổ (đa số) sẽ vẽ nhỏ hơn, còn một trò vẽ ở kích thước cố định của riêng nó thì không được làm nhanh hơn. Đây là một phần của máy, nên một bản ghi cần cùng giá trị.",
+		"setting.framerate": "Tốc độ khung hình",
+		"setting.framerate.about": "Có bao nhiêu khung hình tạo nên một giây thời gian của trò chơi. Godot chạy một bước của trò chơi mỗi khung hình và cho trò chơi biết rằng 1/tốc độ của một giây đã trôi qua, như thể màn hình của nó làm mới ở tốc độ này. 60 là tốc độ mà đa số trò chơi được làm cho. Đây là một phần của máy, nên một bản ghi cần cùng giá trị.",
+		"setting.starttime": "Đồng hồ khi bắt đầu",
+		"setting.starttime.about": "Ngày và giờ mà trò chơi đọc khi nó bắt đầu, tính bằng giây từ năm 1970 (thời gian Unix), theo UTC; sau đó nó chạy theo các khung hình. Mặc định là ngày 1 tháng 1 năm 2000. Đây là một thiết lập, không phải đồng hồ của máy tính bạn, để một bản ghi phát lại giống nhau vào bất kỳ ngày nào. Đây là một phần của máy, nên một bản ghi cần cùng giá trị.",
+		"setting.verbose": "Nhật ký của Godot",
+		"setting.verbose.about": "'true' khởi động Godot với --verbose, để nhật ký của nó (Tools > Export Core Log, hoặc bảng điều khiển) ghi lại những gì nó tải và vẽ. Nó không thay đổi gì trong trò chơi.",
+		"slot.files": "Các tệp khác bên cạnh trò chơi",
+		"slot.files.help": "Các tệp mà trò chơi mở từ thư mục chứa chương trình của nó, dưới tên nó yêu cầu: một tệp .pck thứ hai mà nó tải (nội dung tải về, một mod), hoặc dữ liệu nó đọc bên cạnh chính nó. Trò chơi không tải gì khác thì không cần gì ở đây.",
+		"slot.pack": "Trò chơi",
+		"slot.pack.help": "Tệp .pck của trò chơi, mà một trò chơi Godot đã xuất giữ bên cạnh chương trình của nó (Game.exe và Game.pck). Trò chơi được xuất thành một tệp duy nhất có .pck nằm trong chương trình của nó: khi đó hãy đưa chương trình (.exe hoặc .x86_64) thay vào.",
+		"slot.savedata": "Dữ liệu lưu",
+		"slot.savedata.help": "Những gì trò chơi giữ trong user:// (các lần lưu và thiết lập của nó), như Emulator > Export Save Data đã ghi: mỗi tệp dưới tên riêng của nó, hoặc tệp .zip mà bản xuất tạo từ nhiều tệp. Chúng được đưa vào user:// trước khi trò chơi bắt đầu, nên trò chơi tìm thấy chúng như của chính nó. Một tệp của bản xuất vốn nằm trong một thư mục của user:// chỉ trở lại thư mục đó từ tệp .zip."
+	}
+}

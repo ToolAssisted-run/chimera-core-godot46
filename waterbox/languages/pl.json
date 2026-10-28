@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "Maszyna już działa.",
+		"error.godot_not_4": "Ta gra powstała w Godot %1.%2.%3. Rdzenie Godot uruchamiają gry Godot 4 (4.%4 do 4.%5).",
+		"error.godot_older": "Ta gra powstała w Godot %1.%2.%3: otwórz ją rdzeniem Godot 4.%4, który uruchamia też gry starszych wersji Godot 4.",
+		"error.godot_other": "Ta gra powstała w Godot %1.%2.%3: otwórz ją rdzeniem Godot 4.%4 (ten uruchamia gry Godot 4.%5).",
+		"error.godot_too_new": "Ta gra powstała w Godot %1.%2.%3, nowszym niż każdy rdzeń Godot (najnowszy uruchamia gry Godot 4.%4).",
+		"error.no_main_scene": "Godot nie mógł uruchomić tej gry: nie wczytała się jej główna scena.",
+		"error.pack_not_opened": "Nie udało się otworzyć paczki gry (%1).",
+		"error.save_bad_name": "Zip zapisu gry %1 zawiera %2, co nie jest nazwą w user://.",
+		"error.save_not_zip": "Plik zapisu gry %1 nie jest zipem, który Godot może odczytać.",
+		"error.save_unreadable": "Nie udało się odczytać pliku zapisu gry %1.",
+		"error.setup": "Godot nie mógł uruchomić tej gry (błąd konfiguracji %1). Czy to .pck gry Godot 4?",
+		"error.setup2": "Godot nie mógł uruchomić tej gry (błąd konfiguracji 2: %1).",
+		"setting.drawingcode": "Kod rysowania",
+		"setting.drawingcode.about": "Których instrukcji procesora może używać kod rysujący obrazy. AVX2 (domyślne): także te z większości komputerów PC z lat od 2013, które rysują szybciej; na komputerze bez nich używana jest wersja podstawowa, a obrazy mogą wtedy różnić się od innego komputera o odcień. Podstawowa: tylko te, które ma każdy 64-bitowy PC, więc nagranie daje te same obrazy na każdym komputerze. Sama gra działa tak samo w obu przypadkach.",
+		"setting.drawingsize": "Rozmiar rysowania",
+		"setting.drawingsize.about": "Jak duży obraz gra rysuje, w porównaniu z rozmiarem, o który prosi. Godot rysuje tutaj każdy piksel na procesorze, więc gra rysowana w 50% ma ćwiartkę pikseli i działa nawet około cztery razy szybciej. Obraz jest pokazywany w tym samym rozmiarze, ale miększy. Grze mówi się, że jej okno ma ten rozmiar: gra, która rozciąga swój obraz na okno (większość), rysuje mniejszy; gra, która rysuje w swoim stałym rozmiarze, nie działa szybciej. Jest częścią maszyny, więc nagranie potrzebuje tej samej wartości.",
+		"setting.framerate": "Liczba klatek",
+		"setting.framerate.about": "Ile klatek tworzy sekundę czasu gry. Godot wykonuje jeden krok gry na klatkę i mówi grze, że minęła 1/liczba sekundy, tak jakby jego monitor odświeżał się z tą częstotliwością. 60 to wartość, pod którą powstaje większość gier. Jest częścią maszyny, więc nagranie potrzebuje tej samej wartości.",
+		"setting.starttime": "Zegar startowy",
+		"setting.starttime.about": "Data i godzina, które gra odczytuje (Time.get_unix_time_from_system i funkcje daty) przy starcie, w sekundach od 1970 (czas Unix), w UTC; potem biegnie z klatkami. Domyślnie jest to 1 stycznia 2000. To jest ustawienie, a nie zegar twojego komputera, dzięki czemu nagranie odtwarza się tak samo w każdym dniu. Jest częścią maszyny, więc nagranie potrzebuje tej samej wartości.",
+		"setting.verbose": "Dziennik Godot",
+		"setting.verbose.about": "„true” uruchamia Godot z --verbose, dzięki czemu jego dziennik (Tools > Export Core Log albo konsola) mówi, co wczytuje i rysuje. Niczego w grze nie zmienia.",
+		"slot.files": "Inne pliki obok gry",
+		"slot.files.help": "Pliki, które gra otwiera z folderu, w którym leży jej program, pod nazwami, o które prosi: drugi .pck, który wczytuje (dodatkowa zawartość, mod), albo dane, które czyta obok siebie. Gra, która nic innego nie wczytuje, nie potrzebuje tu niczego.",
+		"slot.pack": "Gra",
+		"slot.pack.help": "Plik .pck gry, który wyeksportowana gra Godot trzyma obok swojego programu (Game.exe i Game.pck). Gra wyeksportowana jako pojedynczy plik ma .pck w swoim programie: wtedy podaj program (.exe albo .x86_64).",
+		"slot.savedata": "Zapis gry",
+		"slot.savedata.help": "To, co gra trzyma w user:// (jej zapisy i ustawienia), tak jak zapisał to Emulator > Export Save Data: każdy plik pod swoją nazwą, albo .zip, który eksport robi z kilku. Są wkładane do user:// przed startem gry, więc gra znajduje je jako swoje. Plik eksportu, który był w folderze user://, wraca do tego folderu tylko z .zip."
+	}
+}

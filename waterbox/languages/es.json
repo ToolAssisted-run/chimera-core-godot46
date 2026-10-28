@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "La máquina ya está en marcha.",
+		"error.godot_not_4": "Este juego se hizo con Godot %1.%2.%3. Los núcleos de Godot ejecutan juegos de Godot 4 (de 4.%4 a 4.%5).",
+		"error.godot_older": "Este juego se hizo con Godot %1.%2.%3: ábrelo con el núcleo de Godot 4.%4, que también ejecuta juegos de versiones anteriores de Godot 4.",
+		"error.godot_other": "Este juego se hizo con Godot %1.%2.%3: ábrelo con el núcleo de Godot 4.%4 (este ejecuta juegos de Godot 4.%5).",
+		"error.godot_too_new": "Este juego se hizo con Godot %1.%2.%3, más nuevo que todos los núcleos de Godot (el más nuevo ejecuta juegos de Godot 4.%4).",
+		"error.no_main_scene": "Godot no pudo arrancar este juego: no se cargó su escena principal.",
+		"error.pack_not_opened": "No se pudo abrir el paquete del juego (%1).",
+		"error.save_bad_name": "El zip de datos de guardado %1 contiene %2, que no es un nombre válido en user://.",
+		"error.save_not_zip": "El archivo de datos de guardado %1 no es un zip que Godot pueda leer.",
+		"error.save_unreadable": "No se pudo leer el archivo de datos de guardado %1.",
+		"error.setup": "Godot no pudo arrancar este juego (error de configuración %1). ¿Es el .pck de un juego de Godot 4?",
+		"error.setup2": "Godot no pudo arrancar este juego (error setup2 %1).",
+		"setting.drawingcode": "Código de dibujo",
+		"setting.drawingcode.about": "Qué instrucciones de la CPU puede usar el código que dibuja las imágenes. AVX2 (por defecto): también las de la mayoría de los PC fabricados desde 2013, que dibujan más rápido; en un ordenador sin ellas se usa la base, y las imágenes pueden entonces diferir un poco de las de otro ordenador. Base: solo las que tiene todo PC de 64 bits, así que una película da las mismas imágenes en cualquier ordenador. El juego en sí se reproduce igual de cualquier modo.",
+		"setting.drawingsize": "Tamaño de dibujo",
+		"setting.drawingsize.about": "Lo grande que dibuja el juego la imagen, frente al tamaño que pide. Godot dibuja aquí cada píxel en la CPU, así que un juego dibujado al 50% tiene una cuarta parte de los píxeles y va hasta unas cuatro veces más rápido. La imagen se muestra al mismo tamaño, pero más suave. Al juego se le dice que su ventana tiene ese tamaño: uno que estira su imagen a la ventana (la mayoría) dibuja más pequeño; uno que dibuja a un tamaño fijo propio no se hace más rápido. Forma parte de la máquina, así que una película necesita el mismo valor.",
+		"setting.framerate": "Fotogramas por segundo",
+		"setting.framerate.about": "Cuántos fotogramas forman un segundo del tiempo del juego. Godot da un paso del juego por fotograma y le dice al juego que ha pasado 1/tasa de segundo, como si su monitor se refrescara a esta tasa. 60 es la tasa para la que se hacen la mayoría de los juegos. Forma parte de la máquina, así que una película necesita el mismo valor.",
+		"setting.starttime": "Reloj de inicio",
+		"setting.starttime.about": "La fecha y hora que lee el juego (Time.get_unix_time_from_system y las funciones de fecha) al empezar, en segundos desde 1970 (hora Unix), en UTC; después avanza con los fotogramas. El valor por defecto es el 1 de enero de 2000. Es un ajuste, y no el reloj de tu ordenador, para que una película se reproduzca igual cualquier día. Forma parte de la máquina, así que una película necesita el mismo valor.",
+		"setting.verbose": "Registro de Godot",
+		"setting.verbose.about": "'true' inicia Godot con --verbose, para que su registro (Herramientas > Exportar registro del núcleo, o la consola) diga qué carga y qué dibuja. No cambia nada del juego.",
+		"slot.files": "Otros archivos junto al juego",
+		"slot.files.help": "Archivos que el juego abre desde la carpeta de su ejecutable, con los nombres que pide: un segundo .pck que carga (contenido descargable, una modificación), o datos que lee junto a sí mismo. Un juego que no carga nada más no necesita nada aquí.",
+		"slot.pack": "Juego",
+		"slot.pack.help": "El archivo .pck del juego, que un juego de Godot exportado guarda junto a su ejecutable (Game.exe y Game.pck). Un juego exportado como un solo archivo tiene el .pck dentro de su ejecutable: entonces indica el ejecutable (.exe o .x86_64) en su lugar.",
+		"slot.savedata": "Datos de guardado",
+		"slot.savedata.help": "Lo que guarda el juego en user:// (sus partidas y ajustes), tal como lo escribió Emulador > Exportar datos de guardado...: cada archivo con su propio nombre, o el .zip que hace la exportación de varios. Se colocan en user:// antes de que empiece el juego, para que lo encuentre como suyo. Un archivo de la exportación que estaba en una carpeta de user:// vuelve a esa carpeta solo desde el .zip."
+	}
+}

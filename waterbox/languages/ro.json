@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "Mașina rulează deja.",
+		"error.godot_not_4": "Acest joc a fost făcut cu Godot %1.%2.%3. Nucleele Godot rulează jocuri Godot 4 (4.%4 până la 4.%5).",
+		"error.godot_older": "Acest joc a fost făcut cu Godot %1.%2.%3: deschide-l cu nucleul Godot 4.%4, care rulează și jocuri ale versiunilor mai vechi Godot 4.",
+		"error.godot_other": "Acest joc a fost făcut cu Godot %1.%2.%3: deschide-l cu nucleul Godot 4.%4 (acesta rulează jocuri Godot 4.%5).",
+		"error.godot_too_new": "Acest joc a fost făcut cu Godot %1.%2.%3, mai nou decât orice nucleu Godot (cel mai nou rulează jocuri Godot 4.%4).",
+		"error.no_main_scene": "Godot nu a putut porni acest joc: scena lui principală nu s-a încărcat.",
+		"error.pack_not_opened": "Pachetul jocului (%1) nu a putut fi deschis.",
+		"error.save_bad_name": "Arhiva de date salvate %1 conține %2, care nu este un nume în user://.",
+		"error.save_not_zip": "Fișierul de date salvate %1 nu este o arhivă zip pe care o poate citi Godot.",
+		"error.save_unreadable": "Fișierul de date salvate %1 nu a putut fi citit.",
+		"error.setup": "Godot nu a putut porni acest joc (eroare de configurare %1). Este un .pck al unui joc Godot 4?",
+		"error.setup2": "Godot nu a putut porni acest joc (eroare setup2 %1).",
+		"setting.drawingcode": "Codul de desenare",
+		"setting.drawingcode.about": "Care dintre instrucțiunile procesorului le poate folosi codul care desenează imaginile. AVX2 (implicit): și cele ale majorității calculatoarelor făcute din 2013 încoace, care desenează mai repede; pe un calculator fără ele se folosește setul de bază, iar imaginile pot diferi atunci de cele ale altui calculator cu o nuanță. Baseline: doar cele pe care le are orice PC pe 64 de biți, deci o înregistrare dă aceleași imagini pe orice calculator. Jocul în sine se joacă la fel în oricare caz.",
+		"setting.drawingsize": "Mărimea desenului",
+		"setting.drawingsize.about": "Cât de mare este imaginea pe care o desenează jocul, față de mărimea pe care o cere. Godot desenează fiecare pixel pe procesor aici, deci un joc desenat la 50% are un sfert din pixeli și rulează de până la cam de patru ori mai repede. Imaginea este arătată la aceeași mărime, mai moale. Jocului i se spune că fereastra lui are această mărime: unul care își întinde imaginea pe fereastră (cele mai multe) desenează mai mic, iar unul care desenează la o mărime fixă a lui nu devine mai rapid. Face parte din mașină, deci o înregistrare are nevoie de aceeași valoare.",
+		"setting.framerate": "Rata de cadre",
+		"setting.framerate.about": "Câte cadre fac o secundă din timpul jocului. Godot rulează un pas al jocului pe cadru și îi spune jocului că a trecut 1/rată dintr-o secundă, ca și cum monitorul lui s-ar reîmprospăta la această rată. 60 este ce fac cele mai multe jocuri. Face parte din mașină, deci o înregistrare are nevoie de aceeași valoare.",
+		"setting.starttime": "Ceasul de pornire",
+		"setting.starttime.about": "Data și ora pe care le citește jocul (Time.get_unix_time_from_system și funcțiile de dată) când pornește, în secunde de la 1970 (ora Unix), în UTC; apoi merge cu cadrele. Implicit este 1 ianuarie 2000. Aceasta este o setare, nu ceasul calculatorului tău, pentru ca o înregistrare să se redea la fel în orice zi. Face parte din mașină, deci o înregistrare are nevoie de aceeași valoare.",
+		"setting.verbose": "Jurnalul Godot",
+		"setting.verbose.about": "„true” pornește Godot cu --verbose, ca jurnalul lui (Tools > Export Core Log, sau consola) să spună ce încarcă și ce desenează. Nu schimbă nimic în joc.",
+		"slot.files": "Alte fișiere lângă joc",
+		"slot.files.help": "Fișierele pe care le deschide jocul din dosarul în care se află executabilul său, sub numele pe care le cere: un al doilea .pck pe care îl încarcă (conținut descărcabil, un mod), sau date pe care le citește lângă el. Un joc care nu încarcă nimic altceva nu are nevoie de nimic aici.",
+		"slot.pack": "Joc",
+		"slot.pack.help": "Fișierul .pck al jocului, pe care un joc Godot exportat îl păstrează lângă executabilul său (Game.exe și Game.pck). Un joc exportat ca un singur fișier are .pck în interiorul executabilului: atunci dă executabilul (.exe sau .x86_64) în schimb.",
+		"slot.savedata": "Date salvate",
+		"slot.savedata.help": "Ce păstrează jocul în user:// (salvările și setările lui), așa cum le-a scris Emulator > Export Save Data: fiecare fișier sub numele lui, sau arhiva .zip pe care o face exportul din mai multe. Sunt puse în user:// înainte să pornească jocul, deci jocul le găsește ca fiind ale lui. Un fișier al exportului care era într-un dosar din user:// se pune înapoi în acel dosar doar din arhiva .zip."
+	}
+}

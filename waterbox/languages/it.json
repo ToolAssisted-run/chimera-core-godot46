@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "La macchina è già in esecuzione.",
+		"error.godot_not_4": "Questo gioco è stato fatto con Godot %1.%2.%3. I core Godot eseguono i giochi di Godot 4 (dalla 4.%4 alla 4.%5).",
+		"error.godot_older": "Questo gioco è stato fatto con Godot %1.%2.%3: aprilo con il core Godot 4.%4, che esegue anche i giochi delle versioni più vecchie di Godot 4.",
+		"error.godot_other": "Questo gioco è stato fatto con Godot %1.%2.%3: aprilo con il core Godot 4.%4 (questo esegue i giochi Godot 4.%5).",
+		"error.godot_too_new": "Questo gioco è stato fatto con Godot %1.%2.%3, più recente di ogni core Godot (il più recente esegue i giochi Godot 4.%4).",
+		"error.no_main_scene": "Godot non ha potuto avviare questo gioco: la sua scena principale non si è caricata.",
+		"error.pack_not_opened": "Non è stato possibile aprire il pacchetto del gioco (%1).",
+		"error.save_bad_name": "Lo zip dei dati di salvataggio %1 contiene %2, che non è un nome in user://.",
+		"error.save_not_zip": "Il file dei dati di salvataggio %1 non è uno zip che Godot può leggere.",
+		"error.save_unreadable": "Non è stato possibile leggere il file dei dati di salvataggio %1.",
+		"error.setup": "Godot non ha potuto avviare questo gioco (errore di configurazione %1). È un .pck di un gioco Godot 4?",
+		"error.setup2": "Godot non ha potuto avviare questo gioco (errore setup2 %1).",
+		"setting.drawingcode": "Codice di disegno",
+		"setting.drawingcode.about": "Quali istruzioni della CPU può usare il codice che disegna le immagini. AVX2 (predefinito): anche quelle della maggior parte dei PC costruiti dal 2013, che disegnano più velocemente; su un computer senza di esse si usa la base, e le immagini possono allora differire di una sfumatura da quelle di un altro computer. Base: solo quelle che ogni PC a 64 bit ha, così un filmato dà le stesse immagini su qualsiasi computer. Il gioco in sé funziona allo stesso modo in entrambi i casi.",
+		"setting.drawingsize": "Dimensione di disegno",
+		"setting.drawingsize.about": "Quanto grande è l'immagine che il gioco disegna, rispetto alla dimensione che chiede. Qui Godot disegna ogni pixel con la CPU, quindi un gioco disegnato al 50% ha un quarto dei pixel e va fino a circa quattro volte più veloce. L'immagine viene mostrata alla stessa dimensione, ma più morbida. Al gioco viene detto che la sua finestra ha quella dimensione: quello che allarga la sua immagine alla finestra (la maggior parte) disegna più piccolo, quello che disegna a una dimensione fissa propria non diventa più veloce. Fa parte della macchina, quindi un filmato richiede lo stesso valore.",
+		"setting.framerate": "Frequenza di fotogrammi",
+		"setting.framerate.about": "Quanti fotogrammi fanno un secondo del tempo del gioco. Godot esegue un passo del gioco per fotogramma e dice al gioco che è passato 1/frequenza di secondo, come se il suo monitor si aggiornasse a questa frequenza. 60 è ciò per cui la maggior parte dei giochi è fatta. Fa parte della macchina, quindi un filmato richiede lo stesso valore.",
+		"setting.starttime": "Orologio di avvio",
+		"setting.starttime.about": "La data e l'ora che il gioco legge (Time.get_unix_time_from_system e le funzioni di data) quando parte, in secondi dal 1970 (ora Unix), in UTC; poi va avanti con i fotogrammi. Il valore predefinito è il primo gennaio 2000. È un'impostazione e non l'orologio del tuo computer, così un filmato si riproduce allo stesso modo in qualsiasi giorno. Fa parte della macchina, quindi un filmato richiede lo stesso valore.",
+		"setting.verbose": "Registro di Godot",
+		"setting.verbose.about": "'true' avvia Godot con --verbose, così che il suo registro (Strumenti > Esporta registro del core, oppure la console) dice cosa carica e disegna. Non cambia nulla nel gioco.",
+		"slot.files": "Altri file accanto al gioco",
+		"slot.files.help": "File che il gioco apre dalla cartella in cui si trova il suo eseguibile, con i nomi che chiede: un secondo .pck che carica (contenuti scaricabili, una mod), oppure dati che legge accanto a sé. Un gioco che non carica altro non ha bisogno di nulla qui.",
+		"slot.pack": "Gioco",
+		"slot.pack.help": "Il file .pck del gioco, che un gioco Godot esportato tiene accanto al suo eseguibile (Game.exe e Game.pck). Un gioco esportato come un unico file ha il .pck dentro il suo eseguibile: allora indica l'eseguibile (.exe o .x86_64).",
+		"slot.savedata": "Dati di salvataggio",
+		"slot.savedata.help": "Ciò che il gioco conserva in user:// (i suoi salvataggi e le sue impostazioni), così come lo scrive Emulatore > Esporta dati di salvataggio: ogni file con il suo nome, oppure lo .zip che l'esportazione fa di più file. Vengono messi in user:// prima che il gioco parta, così il gioco li trova come suoi. Un file dell'esportazione che era in una cartella di user:// torna in quella cartella solo dallo .zip."
+	}
+}

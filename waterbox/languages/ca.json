@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "La màquina ja està en marxa.",
+		"error.godot_not_4": "Aquest joc es va fer amb Godot %1.%2.%3. Els nuclis de Godot executen jocs de Godot 4 (de la 4.%4 a la 4.%5).",
+		"error.godot_older": "Aquest joc es va fer amb Godot %1.%2.%3: obriu-lo amb el nucli de Godot 4.%4, que també executa jocs de versions anteriors de Godot 4.",
+		"error.godot_other": "Aquest joc es va fer amb Godot %1.%2.%3: obriu-lo amb el nucli de Godot 4.%4 (aquest executa jocs de Godot 4.%5).",
+		"error.godot_too_new": "Aquest joc es va fer amb Godot %1.%2.%3, més nou que tots els nuclis de Godot (el més nou executa jocs de Godot 4.%4).",
+		"error.no_main_scene": "Godot no ha pogut iniciar aquest joc: la seua escena principal no s'ha carregat.",
+		"error.pack_not_opened": "No s'ha pogut obrir el paquet del joc (%1).",
+		"error.save_bad_name": "El zip de dades desades %1 conté %2, que no és un nom de user://.",
+		"error.save_not_zip": "El fitxer de dades desades %1 no és un zip que Godot pugui llegir.",
+		"error.save_unreadable": "No s'ha pogut llegir el fitxer de dades desades %1.",
+		"error.setup": "Godot no ha pogut iniciar aquest joc (error de configuració %1). És el .pck d'un joc de Godot 4?",
+		"error.setup2": "Godot no ha pogut iniciar aquest joc (error de configuració 2 %1).",
+		"setting.drawingcode": "Codi de dibuix",
+		"setting.drawingcode.about": "Quines instruccions de la CPU pot usar el codi que dibuixa les imatges. AVX2 (el valor per defecte): també les de la majoria d'ordinadors fets des del 2013, que dibuixen més de pressa; en un ordinador sense elles s'usa el mínim, i les imatges poden aleshores diferir de les d'un altre ordinador en una mica. Mínim: només les que té qualsevol PC de 64 bits, així que una pel·lícula dona les mateixes imatges en qualsevol ordinador. El joc en si es comporta igual en tots dos casos.",
+		"setting.drawingsize": "Mida del dibuix",
+		"setting.drawingsize.about": "Com de gran és la imatge que dibuixa el joc, en comparació amb la mida que demana. Aquí Godot dibuixa cada píxel a la CPU, així que un joc dibuixat al 50% té un quart dels píxels i va fins a unes quatre vegades més ràpid. La imatge es mostra a la mateixa mida, més suau. Al joc se li diu que la seua finestra té aquesta mida: un que estira la imatge a la finestra (la majoria) la dibuixa més petita, un que la dibuixa a una mida fixa pròpia no es fa més ràpid. Forma part de la màquina, així que una pel·lícula necessita el mateix valor.",
+		"setting.framerate": "Velocitat de fotogrames",
+		"setting.framerate.about": "Quants fotogrames fan un segon del temps del joc. Godot fa un pas del joc per fotograma i diu al joc que ha passat 1/velocitat d'un segon, com si el seu monitor refrescués a aquesta velocitat. 60 és el que es fa per a la majoria de jocs. Forma part de la màquina, així que una pel·lícula necessita el mateix valor.",
+		"setting.starttime": "Rellotge d'inici",
+		"setting.starttime.about": "La data i hora que llegeix el joc (Time.get_unix_time_from_system i les funcions de data) quan s'inicia, en segons des de 1970 (temps Unix), en UTC; després va amb els fotogrames. El valor per defecte és l'u de gener del 2000. Això és una configuració, i no el rellotge del vostre ordinador, perquè una pel·lícula es reprodueixi igual qualsevol dia. Forma part de la màquina, així que una pel·lícula necessita el mateix valor.",
+		"setting.verbose": "Registre de Godot",
+		"setting.verbose.about": "'true' inicia Godot amb --verbose, perquè el seu registre (Eines > Exporta el registre del nucli, o la consola) digui què carrega i què dibuixa. No canvia res del joc.",
+		"slot.files": "Altres fitxers al costat del joc",
+		"slot.files.help": "Fitxers que el joc obre des de la carpeta del seu executable, amb els noms que demana: un segon .pck que carrega (contingut descarregable, un mod), o dades que llegeix al costat de si mateix. Un joc que no carrega res més no necessita res aquí.",
+		"slot.pack": "Joc",
+		"slot.pack.help": "El fitxer .pck del joc, que un joc de Godot exportat guarda al costat del seu executable (Game.exe i Game.pck). Un joc exportat com a fitxer únic té el .pck dins del seu executable: en aquest cas doneu l'executable (.exe o .x86_64) en lloc d'això.",
+		"slot.savedata": "Dades desades",
+		"slot.savedata.help": "Tot el que el joc guarda a user:// (les seues partides i configuracions), tal com ho va escriure Emulador > Exporta les dades desades: cada fitxer amb el seu nom, o el .zip que fa l'exportació de diversos. Es posen a user:// abans que comenci el joc, així que el joc els troba com a propis. Un fitxer de l'exportació que estava en una carpeta de user:// només torna a aquella carpeta des del .zip."
+	}
+}

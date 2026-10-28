@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "Mesin sudah berjalan.",
+		"error.godot_not_4": "Game ini dibuat dengan Godot %1.%2.%3. Core Godot menjalankan game Godot 4 (4.%4 sampai 4.%5).",
+		"error.godot_older": "Game ini dibuat dengan Godot %1.%2.%3: bukalah dengan core Godot 4.%4, yang juga menjalankan game dari versi Godot 4 yang lebih lama.",
+		"error.godot_other": "Game ini dibuat dengan Godot %1.%2.%3: bukalah dengan core Godot 4.%4 (yang ini menjalankan game Godot 4.%5).",
+		"error.godot_too_new": "Game ini dibuat dengan Godot %1.%2.%3, lebih baru dari setiap core Godot (yang terbaru menjalankan game Godot 4.%4).",
+		"error.no_main_scene": "Godot tidak dapat memulai game ini: scene utamanya tidak termuat.",
+		"error.pack_not_opened": "Pack game (%1) tidak dapat dibuka.",
+		"error.save_bad_name": "Zip data simpanan %1 berisi %2, yang bukan nama di user://.",
+		"error.save_not_zip": "File data simpanan %1 bukan zip yang dapat dibaca Godot.",
+		"error.save_unreadable": "File data simpanan %1 tidak dapat dibaca.",
+		"error.setup": "Godot tidak dapat memulai game ini (kesalahan setup %1). Apakah ini .pck dari game Godot 4?",
+		"error.setup2": "Godot tidak dapat memulai game ini (kesalahan setup2 %1).",
+		"setting.drawingcode": "Kode Menggambar",
+		"setting.drawingcode.about": "Instruksi CPU mana yang boleh dipakai kode yang menggambar gambar. AVX2 (bawaan): juga instruksi dari sebagian besar PC yang dibuat sejak 2013, yang menggambar lebih cepat; pada komputer tanpanya, dasar yang dipakai, dan gambarnya mungkin sedikit berbeda dari komputer lain. Dasar: hanya instruksi yang dimiliki setiap PC 64-bit, sehingga rekaman menghasilkan gambar yang sama di komputer mana pun. Game itu sendiri berjalan sama dalam kedua kasus.",
+		"setting.drawingsize": "Ukuran Gambar",
+		"setting.drawingsize.about": "Seberapa besar gambar yang digambar game, dibandingkan ukuran yang diminta. Godot menggambar setiap piksel dengan CPU di sini, sehingga game yang digambar 50% memiliki seperempat piksel dan berjalan hingga sekitar empat kali lebih cepat. Gambar ditampilkan pada ukuran yang sama, lebih lembut. Game diberi tahu bahwa jendelanya seukuran itu: game yang meregangkan gambarnya ke jendela (kebanyakan) menggambar lebih kecil, dan game yang menggambar pada ukuran tetap miliknya sendiri tidak menjadi lebih cepat. Ini bagian dari mesin, sehingga rekaman membutuhkan nilai yang sama.",
+		"setting.framerate": "Laju Bingkai",
+		"setting.framerate.about": "Berapa bingkai yang membentuk satu detik waktu game. Godot menjalankan satu langkah game per bingkai dan memberi tahu game bahwa 1/laju detik telah berlalu, seolah-olah monitornya menyegarkan pada laju ini. 60 adalah yang untuk itu kebanyakan game dibuat. Ini bagian dari mesin, sehingga rekaman membutuhkan nilai yang sama.",
+		"setting.starttime": "Jam Awal",
+		"setting.starttime.about": "Tanggal dan waktu yang dibaca game (Time.get_unix_time_from_system dan fungsi tanggal) ketika mulai, dalam detik sejak 1970 (waktu Unix), dalam UTC; setelah itu ia berjalan bersama bingkai. Bawaannya adalah 1 Januari 2000. Ini adalah pengaturan, bukan jam komputer Anda, sehingga rekaman diputar dengan sama pada hari apa pun. Ini bagian dari mesin, sehingga rekaman membutuhkan nilai yang sama.",
+		"setting.verbose": "Log Godot",
+		"setting.verbose.about": "'true' memulai Godot dengan --verbose, sehingga lognya (Alat > Ekspor Log Core, atau konsol) menyebutkan apa yang dimuat dan digambarnya. Ini tidak mengubah apa pun dalam game.",
+		"slot.files": "File lain di samping game",
+		"slot.files.help": "File yang dibuka game dari folder tempat executable-nya berada, dengan nama yang diminta game: .pck kedua yang dimuatnya (konten unduhan, mod), atau data yang dibacanya di sampingnya. Game yang tidak memuat apa pun lagi tidak membutuhkan apa pun di sini.",
+		"slot.pack": "Game",
+		"slot.pack.help": "File .pck game, yang disimpan game Godot yang diekspor di samping executable-nya (Game.exe dan Game.pck). Game yang diekspor sebagai satu file memiliki .pck di dalam executable-nya: berikan executable (.exe atau .x86_64) sebagai gantinya.",
+		"slot.savedata": "Data simpanan",
+		"slot.savedata.help": "Apa yang disimpan game di user:// (simpanan dan pengaturannya), seperti yang ditulis Emulator > Ekspor Data Simpanan: setiap file dengan nama sendiri, atau .zip yang dibuat ekspor dari beberapa file. File dimasukkan ke user:// sebelum game dimulai, sehingga game menemukannya sebagai miliknya sendiri. File ekspor yang berada di folder user:// kembali ke folder itu hanya dari .zip."
+	}
+}
