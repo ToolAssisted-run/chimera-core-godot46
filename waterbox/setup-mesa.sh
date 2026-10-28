@@ -83,23 +83,25 @@ echo "$sha256  $tarball" | sha256sum -c - >/dev/null || {
 	exit 1
 }
 
+# the patches as one checksum, written beside the tree they were applied to
+# (each one reversed alone cannot be checked: a later one may change the
+# same lines)
+series() { cat "$here"/mesa-patches/*.patch 2> /dev/null | sha256sum | cut -d' ' -f1; }
 if [ ! -d "$mesa/src/gallium" ]; then
 	mkdir -p "$mesa"
 	tar -xf "$tarball" -C "$mesa" --strip-components=1
 	for p in "$here"/mesa-patches/*.patch; do
 		[ -f "$p" ] || continue
 		echo "mesa: applying $(basename "$p")"
-		patch -d "$mesa" -p1 --quiet < "$p"
+		patch -d "$mesa" -p1 --quiet < "$p" || exit 1
 	done
+	series > "$mesa/.chimera-patches"
 fi
-# a tree extracted before the patches were there is not this Mesa
-for p in "$here"/mesa-patches/*.patch; do
-	[ -f "$p" ] || continue
-	patch -d "$mesa" -p1 --dry-run -R --quiet < "$p" > /dev/null 2>&1 || {
-		echo "mesa: $mesa lacks $(basename "$p"); remove build/mesa and run again" >&2
-		exit 1
-	}
-done
+# a tree patched with other patches, or none, is not this Mesa
+[ "$(cat "$mesa/.chimera-patches" 2> /dev/null)" = "$(series)" ] || {
+	echo "mesa: $mesa was not patched with waterbox/mesa-patches as they are now; remove build/mesa and run again" >&2
+	exit 1
+}
 
 # LLVM for llvmpipe (build-llvm.sh): its llvm-config, which for the guest
 # answers with the guest build's folders
