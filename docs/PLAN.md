@@ -32,3 +32,14 @@ Chimera package holds one engine). The 4.4 core also takes games of 4.0 to
   frame (36,999,502 bytes) changes nothing.
 - `tests/run-frontend.sh`: 5 ok (chimera-run with a movie file and a
   project, Chimera's window, the default bindings).
+
+## Drawing Size (2026-10-28, chimera issue 380)
+
+As the 4.7 core's (its docs/PLAN.md): the Drawing Size setting (100%, 75%,
+50% or 25%) gives the game a window of that share of the size it asks for,
+and the game draws at that size, a quarter of the pixels at 50%. Godot draws
+every pixel on the CPU here, so a game that stretches its picture to its
+window runs about twice as fast or more; one with a fixed size of its own is
+not made faster. It is part of the machine: a movie needs the same value.
+The test script checks that at 50% Dodge the Creeps draws 240x360 and plays
+the same steps, native and in the sandbox.

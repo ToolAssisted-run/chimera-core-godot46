@@ -51,6 +51,9 @@ void DisplayServerChimera::register_chimera_driver() {
 
 // The size the core allows a window to have (waterbox.config's capacity).
 extern "C" void chimera_godot_max_picture(int *r_width, int *r_height);
+// The share of the size the game asks for that the window is given, in
+// percent (the "drawingSize" setting).
+extern "C" int chimera_godot_drawing_percent();
 
 DisplayServer *DisplayServerChimera::create_func(const String &p_rendering_driver, DisplayServerEnums::WindowMode p_mode, DisplayServerEnums::VSyncMode p_vsync_mode, uint32_t p_flags, const Vector2i *p_position, const Vector2i &p_resolution, int p_screen, DisplayServerEnums::Context p_context, int64_t p_parent_window, Error &r_error) {
 	int mw = 1920, mh = 1080;
@@ -65,8 +68,15 @@ DisplayServer *DisplayServerChimera::create_func(const String &p_rendering_drive
 	return ds;
 }
 
+// The window a size asked for gets: the drawing size's share of it, within
+// what the core allows. The game is told this size and draws at it; a game
+// that stretches its picture to its window (Godot's canvas_items or
+// disabled stretch modes) draws fewer pixels, one with a fixed size of its
+// own (viewport) as many as before.
 static Size2i _clamp_size(const Size2i &p_size, const Size2i &p_max) {
-	return Size2i(CLAMP(p_size.x, 16, p_max.x), CLAMP(p_size.y, 16, p_max.y));
+	const int percent = chimera_godot_drawing_percent();
+	const Size2i want(p_size.x * percent / 100, p_size.y * percent / 100);
+	return Size2i(CLAMP(want.x, 16, p_max.x), CLAMP(want.y, 16, p_max.y));
 }
 
 bool DisplayServerChimera::_make_surface(const Size2i &p_size) {
@@ -141,6 +151,11 @@ Vector<DisplayServerEnums::WindowID> DisplayServerChimera::get_window_list() con
 }
 
 void DisplayServerChimera::window_set_size(const Size2i p_size, DisplayServerEnums::WindowID p_window) {
+	// the size the game was given, asked for again, is kept: the drawing
+	// size's share is taken of what the game asks, not of what it was given
+	if (p_size == size) {
+		return;
+	}
 	Size2i want = _clamp_size(p_size, max_size);
 	if (want == size) {
 		return;

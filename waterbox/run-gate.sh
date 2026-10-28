@@ -139,6 +139,22 @@ else
 	fail "teeth: Enter one frame later gave the same pictures"
 fi
 
+# Drawing Size (chimera issue 380): at 50% the game's window is half the size
+# it asks for, a quarter of the pixels to draw, the same in the sandbox as
+# native; this game stretches its picture, so it plays the same steps
+mkwork dtc50 "$root/tests/dodge-the-creeps.pck" '{"drawingSize": "50%"}'
+"$native" "$work/dtc50" --frames $frames "${dtc_movie[@]}" --screenshot 590:"$work/n50.tga" > "$work/n50.txt" 2> /dev/null
+"$wbx" "$core" "$work/dtc50" --frames $frames "${dtc_movie[@]}" > "$work/w50.txt" 2> /dev/null
+"$native" "$work/dtc" --frames $frames "${dtc_movie[@]}" --screenshot 590:"$work/n100.tga" > /dev/null 2>&1
+tga_size() { od -An -tu2 -j12 -N4 "$1" | tr -s ' ' | sed 's/^ //'; }
+same drawing-size "$work/n50.txt" "$work/w50.txt" "Drawing Size 50%: native = sandbox, every picture, the sound, the steps"
+if [ "$(tga_size "$work/n100.tga")" = "480 720" ] && [ "$(tga_size "$work/n50.tga")" = "240 360" ] &&
+   [ "$(value "$work/n50.txt" stepsHash)" = "$(value "$work/n.txt" stepsHash)" ]; then
+	pass "drawing-size: at 50% the game draws 240x360 instead of 480x720 and plays the same steps"
+else
+	fail "drawing-size: 100% $(tga_size "$work/n100.tga"), 50% $(tga_size "$work/n50.tga"), steps $(value "$work/n50.txt" stepsHash) vs $(value "$work/n.txt" stepsHash)"
+fi
+
 # ---------------------------------------------------------------- the probe
 echo "== the probe (tests/probe)"
 mkwork probe "$root/tests/probe.pck"

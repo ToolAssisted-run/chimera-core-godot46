@@ -173,6 +173,16 @@ int max_picture_h = 1080;
 
 } // namespace
 
+// The "drawingSize" setting: the share, in percent, of the size the game asks
+// its window to have that it is given and draws. Godot draws every pixel on
+// the CPU here, so the time a frame takes follows its pixels (chimera issue
+// 380): half the size is a quarter of them.
+static int drawing_percent = 100;
+
+extern "C" int chimera_godot_drawing_percent() {
+	return drawing_percent;
+}
+
 extern "C" void chimera_godot_max_picture(int *r_width, int *r_height) {
 	*r_width = max_picture_w;
 	*r_height = max_picture_h;
@@ -529,6 +539,13 @@ ECL_EXPORT int Init(void) {
 	}
 	// 2000-01-01 00:00:00 UTC unless the project says otherwise
 	long start_time = chimera_setting_long("startTime", 946684800L);
+	// "100%", "75%", "50%" or "25%"; anything else is the whole size
+	char drawing[16] = "";
+	chimera_setting_str("drawingSize", drawing, sizeof drawing);
+	drawing_percent = String(drawing).to_int();
+	if (drawing_percent != 75 && drawing_percent != 50 && drawing_percent != 25) {
+		drawing_percent = 100;
+	}
 
 	machine->os = new OS_Chimera();
 	machine->os->set_clock((uint32_t)fps, start_time);
