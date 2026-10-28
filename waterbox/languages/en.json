@@ -1,0 +1,32 @@
+{
+	"texts": {
+		"error.already_running": "The machine is already running.",
+		"error.godot_not_4": "This game was made with Godot %1.%2.%3. The Godot cores run games of Godot 4 (4.%4 to 4.%5).",
+		"error.godot_older": "This game was made with Godot %1.%2.%3: open it with the Godot 4.%4 core, which also runs games of older Godot 4 versions.",
+		"error.godot_other": "This game was made with Godot %1.%2.%3: open it with the Godot 4.%4 core (this one runs Godot 4.%5 games).",
+		"error.godot_too_new": "This game was made with Godot %1.%2.%3, newer than every Godot core (the newest runs Godot 4.%4 games).",
+		"error.no_main_scene": "Godot could not start this game: its main scene did not load.",
+		"error.pack_not_opened": "The game's pack (%1) could not be opened.",
+		"error.save_bad_name": "The save data zip %1 holds %2, which is not a name in user://.",
+		"error.save_not_zip": "The save data file %1 is not a zip Godot can read.",
+		"error.save_unreadable": "The save data file %1 could not be read.",
+		"error.setup": "Godot could not start this game (setup error %1). Is this a Godot 4 game's .pck?",
+		"error.setup2": "Godot could not start this game (setup2 error %1).",
+		"setting.drawingcode": "Drawing Code",
+		"setting.drawingcode.about": "Which of the CPU's instructions the code that draws the pictures may use. AVX2 (the default): also those of most PCs made since 2013, which draw faster; on a computer without them the baseline is used, and the pictures may then differ from another computer's by a shade. Baseline: only those every 64-bit PC has, so a movie gives the same pictures on any computer. The game itself plays the same either way.",
+		"setting.drawingsize": "Drawing Size",
+		"setting.drawingsize.about": "How big a picture the game draws, against the size it asks for. Godot draws every pixel on the CPU here, so a game drawn at 50% has a quarter of the pixels and runs up to about four times faster. The picture is shown at the same size, softer. The game is told its window is that size: one that stretches its picture to its window (most) draws smaller, one that draws at a fixed size of its own is not made faster. It is part of the machine, so a movie needs the same value.",
+		"setting.framerate": "Frame Rate",
+		"setting.framerate.about": "How many frames make a second of the game's time. Godot runs one step of the game per frame and tells the game that 1/rate of a second went by, as if its monitor refreshed at this rate. 60 is what most games are made for. It is part of the machine, so a movie needs the same value.",
+		"setting.starttime": "Starting Clock",
+		"setting.starttime.about": "The date and time the game reads (Time.get_unix_time_from_system and the date functions) when it starts, in seconds since 1970 (Unix time), in UTC; it then runs with the frames. The default is the first of January 2000. This is a setting, and not your computer's clock, so that a movie plays back the same on any day. It is part of the machine, so a movie needs the same value.",
+		"setting.verbose": "Godot's Log",
+		"setting.verbose.about": "'true' starts Godot with --verbose, so that its log (Tools > Export Core Log, or the console) says what it loads and draws. It changes nothing in the game.",
+		"slot.files": "Other files beside the game",
+		"slot.files.help": "Files the game opens from the folder its executable is in, under the names it asks for: a second .pck it loads (downloadable content, a mod), or data it reads beside itself. A game that loads nothing else needs nothing here.",
+		"slot.pack": "Game",
+		"slot.pack.help": "The game's .pck file, which an exported Godot game keeps beside its executable (Game.exe and Game.pck). A game exported as a single file has the .pck inside its executable: then give the executable (.exe or .x86_64) instead.",
+		"slot.savedata": "Save data",
+		"slot.savedata.help": "What the game keeps in user:// (its saves and settings), as Emulator > Export Save Data wrote it: each file under its own name, or the .zip the export makes of several. They are put in user:// before the game starts, so the game finds them as its own. A file of the export that was in a folder of user:// goes back in that folder only from the .zip."
+	}
+}

@@ -99,6 +99,8 @@ value() { digests "$1" | sed -n "s/^$2=//p"; }
 has() { # has <test> <file> <fixed line> <what>
 	if grep -qF -- "$3" "$2"; then pass "$1: $4"; else fail "$1: $4 (no line '$3')"; grep '^probe' "$2" | head -5; fi
 }
+# the byte between a key and each of its arguments (chimera docs/translations.md)
+S="$(printf '\037')"
 hasnt() { # hasnt <test> <file> <fixed line> <what>
 	if grep -qF -- "$3" "$2"; then fail "$1: $4 (found '$3')"; else pass "$1: $4"; fi
 }
@@ -275,7 +277,7 @@ z = zipfile.ZipFile('$work/bad.zip', 'w'); z.writestr('../escape.txt', 'no'); z.
 mkdir -p "$work/seedbad"; cp "$work/bad.zip" "$work/seedbad/user.zip"
 seed seedbad '{"pack":["probe.pck"],"savedata":["user.zip"]}'
 "$native" "$work/seedbad" --frames 1 > "$work/seedbad.txt" 2> /dev/null
-has "save data" "$work/seedbad.txt" "loadError=the save data zip user.zip holds ../escape.txt, which is not a name in user://" "a zip holding a name outside user:// is refused, saying which"
+has "save data" "$work/seedbad.txt" "loadError=error.save_bad_name${S}user.zip${S}../escape.txt" "a zip holding a name outside user:// is refused, saying which"
 
 echo "== the game's Godot version"
 # A pack says which Godot exported it; a core runs its own version's games
@@ -298,29 +300,29 @@ PY
 other=$((minor == 7 ? 6 : 7))
 mkpack vother game.pck 4 "$other"
 "$native" "$work/vother" --frames 1 > "$work/vother.txt" 2> /dev/null
-has version "$work/vother.txt" "loadError=this game was made with Godot 4.$other.1: open it with the Godot 4.$other core (this one runs Godot 4.$minor games)" "a game of Godot 4.$other is refused, naming its core"
+has version "$work/vother.txt" "loadError=error.godot_other${S}4${S}$other${S}1${S}$other${S}$minor" "a game of Godot 4.$other is refused, naming its core"
 mkpack vemb game.x86_64 4 "$other" embedded
 "$wbx" "$core" "$work/vemb" --frames 1 > "$work/vemb.txt" 2> /dev/null
-has version "$work/vemb.txt" "loadError=this game was made with Godot 4.$other.1: open it with the Godot 4.$other core" "and so is one embedded in its executable, in the sandbox"
+has version "$work/vemb.txt" "loadError=error.godot_other${S}4${S}$other${S}1${S}$other" "and so is one embedded in its executable, in the sandbox"
 mkpack v3 game.pck 3 5
 "$native" "$work/v3" --frames 1 > "$work/v3.txt" 2> /dev/null
-has version "$work/v3.txt" "loadError=this game was made with Godot 3.5.1; the Godot cores run games of Godot 4" "a Godot 3 game is refused"
+has version "$work/v3.txt" "loadError=error.godot_not_4${S}3${S}5${S}1" "a Godot 3 game is refused"
 mkpack vold game.pck 4 2
 "$native" "$work/vold" --frames 1 > "$work/vold.txt" 2> /dev/null
 if [ "$minor" -le 4 ]; then
-	hasnt version "$work/vold.txt" "this game was made with Godot" "a Godot 4.2 game is taken by this core, the oldest"
+	hasnt version "$work/vold.txt" "loadError=error.godot_" "a Godot 4.2 game is taken by this core, the oldest"
 else
-	has version "$work/vold.txt" "loadError=this game was made with Godot 4.2.1: open it with the Godot 4.4 core, which also runs games of older Godot 4 versions" "a Godot 4.2 game is sent to the 4.4 core"
+	has version "$work/vold.txt" "loadError=error.godot_older${S}4${S}2${S}1${S}4" "a Godot 4.2 game is sent to the 4.4 core"
 fi
 mkpack vown game.pck 4 "$minor"
 "$native" "$work/vown" --frames 1 > "$work/vown.txt" 2> /dev/null
-hasnt version "$work/vown.txt" "this game was made with Godot" "a game of this core's own version is not refused for its version"
+hasnt version "$work/vown.txt" "loadError=error.godot_" "a game of this core's own version is not refused for its version"
 
 echo "== refusals"
 mkdir -p "$work/nopack"
 printf '{"pack":["missing.pck"]}' > "$work/nopack/slots"; printf '{}' > "$work/nopack/settings"
 "$native" "$work/nopack" --frames 1 > "$work/nopack.txt" 2> /dev/null
-if grep -qF "loadError=the game's pack (missing.pck) could not be opened" "$work/nopack.txt"; then
+if grep -qF "loadError=error.pack_not_opened${S}missing.pck" "$work/nopack.txt"; then
 	pass "refusals: a pack that is not there says so"
 else
 	fail "refusals: missing pack: $(grep loadError "$work/nopack.txt")"
@@ -329,7 +331,7 @@ mkdir -p "$work/notpack"
 head -c 4096 /dev/zero | tr '\0' 'x' > "$work/notpack/game.pck"
 printf '{"pack":["game.pck"]}' > "$work/notpack/slots"; printf '{}' > "$work/notpack/settings"
 "$native" "$work/notpack" --frames 1 > "$work/notpack.txt" 2> /dev/null
-if grep -q "^loadError=Godot could not start this game" "$work/notpack.txt"; then
+if grep -q "^loadError=error.\(setup\|setup2\|no_main_scene\)" "$work/notpack.txt"; then
 	pass "refusals: a file that is not a Godot pack: $(sed -n 's/^loadError=//p' "$work/notpack.txt")"
 else
 	fail "refusals: not a pack: $(grep loadError "$work/notpack.txt")"

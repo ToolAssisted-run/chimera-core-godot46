@@ -3,7 +3,7 @@
   "slots": [
     {
       "id": "pack",
-      "title": "Game",
+      "title": "slot.pack",
       "min": 1,
       "max": 1,
       "formats": [
@@ -13,11 +13,11 @@
         "arm64",
         "bin"
       ],
-      "help": "The game's .pck file, which an exported Godot game keeps beside its executable (Game.exe and Game.pck). A game exported as a single file has the .pck inside its executable: then give the executable (.exe or .x86_64) instead."
+      "help": "slot.pack.help"
     },
     {
       "id": "files",
-      "title": "Other files beside the game",
+      "title": "slot.files",
       "min": 0,
       "max": -1,
       "formats": [
@@ -30,11 +30,11 @@
         "bin",
         "ini"
       ],
-      "help": "Files the game opens from the folder its executable is in, under the names it asks for: a second .pck it loads (downloadable content, a mod), or data it reads beside itself. A game that loads nothing else needs nothing here."
+      "help": "slot.files.help"
     },
     {
       "id": "savedata",
-      "title": "Save data",
+      "title": "slot.savedata",
       "min": 0,
       "max": -1,
       "formats": [
@@ -51,7 +51,7 @@
         "zip",
         ""
       ],
-      "help": "What the game keeps in user:// (its saves and settings), as Emulator > Export Save Data wrote it: each file under its own name, or the .zip the export makes of several. They are put in user:// before the game starts, so the game finds them as its own. A file of the export that was in a folder of user:// goes back in that folder only from the .zip."
+      "help": "slot.savedata.help"
     }
   ]
 }

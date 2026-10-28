@@ -166,6 +166,11 @@ struct Machine {
 };
 
 Machine *machine = nullptr;
+/* A text a person reads is a key of languages/en.json, each of its
+ * arguments after a TEXT_ARG (chimera docs/translations.md). TEXT_ARG is a
+ * string of its own so the byte after it is never read as more of its hex. */
+#define TEXT_ARG "\x1f"
+
 char load_error[1024];
 bool render_enabled = true;
 int max_picture_w = 1920;
@@ -434,16 +439,16 @@ static bool _check_pack_version(const ChimeraFSRef &p_pack) {
 		return true;
 	}
 	if (major != 4) {
-		snprintf(load_error, sizeof load_error, "this game was made with Godot %u.%u.%u; the Godot cores run games of Godot 4 (4.%d to 4.%d)",
+		snprintf(load_error, sizeof load_error, "error.godot_not_4" TEXT_ARG "%u" TEXT_ARG "%u" TEXT_ARG "%u" TEXT_ARG "%d" TEXT_ARG "%d",
 				major, minor, patch, CHIMERA_OLDEST_CORE_MINOR, CHIMERA_NEWEST_CORE_MINOR);
 	} else if (minor > CHIMERA_NEWEST_CORE_MINOR) {
-		snprintf(load_error, sizeof load_error, "this game was made with Godot %u.%u.%u, newer than every Godot core (the newest runs Godot 4.%d games)",
+		snprintf(load_error, sizeof load_error, "error.godot_too_new" TEXT_ARG "%u" TEXT_ARG "%u" TEXT_ARG "%u" TEXT_ARG "%d",
 				major, minor, patch, CHIMERA_NEWEST_CORE_MINOR);
 	} else if (minor < CHIMERA_OLDEST_CORE_MINOR) {
-		snprintf(load_error, sizeof load_error, "this game was made with Godot %u.%u.%u: open it with the Godot 4.%d core, which also runs games of older Godot 4 versions",
+		snprintf(load_error, sizeof load_error, "error.godot_older" TEXT_ARG "%u" TEXT_ARG "%u" TEXT_ARG "%u" TEXT_ARG "%d",
 				major, minor, patch, CHIMERA_OLDEST_CORE_MINOR);
 	} else {
-		snprintf(load_error, sizeof load_error, "this game was made with Godot %u.%u.%u: open it with the Godot 4.%u core (this one runs Godot 4.%d games)",
+		snprintf(load_error, sizeof load_error, "error.godot_other" TEXT_ARG "%u" TEXT_ARG "%u" TEXT_ARG "%u" TEXT_ARG "%u" TEXT_ARG "%d",
 				major, minor, patch, minor, CHIMERA_GODOT_MINOR);
 	}
 	return false;
@@ -493,7 +498,7 @@ static bool _seed_save_data() {
 		}
 		Vector<uint8_t> data;
 		if (!_read_mounted(name, data)) {
-			snprintf(load_error, sizeof load_error, "the save data file %s could not be read", name);
+			snprintf(load_error, sizeof load_error, "error.save_unreadable" TEXT_ARG "%s", name);
 			return false;
 		}
 		String file = _mounted_name(name);
@@ -505,7 +510,7 @@ static bool _seed_save_data() {
 		Ref<ZIPReader> zip;
 		zip.instantiate();
 		if (zip->open("/tmp/chimera-savedata.zip") != OK) {
-			snprintf(load_error, sizeof load_error, "the save data file %s is not a zip Godot can read", name);
+			snprintf(load_error, sizeof load_error, "error.save_not_zip" TEXT_ARG "%s", name);
 			return false;
 		}
 		PackedStringArray entries = zip->get_files();
@@ -514,7 +519,7 @@ static bool _seed_save_data() {
 				continue; // a folder: made with the files in it
 			}
 			if (!_good_save_name(entry)) {
-				snprintf(load_error, sizeof load_error, "the save data zip %s holds %s, which is not a name in user://", name, entry.utf8().get_data());
+				snprintf(load_error, sizeof load_error, "error.save_bad_name" TEXT_ARG "%s" TEXT_ARG "%s", name, entry.utf8().get_data());
 				return false;
 			}
 			PackedByteArray bytes = zip->read_file(entry, true);
@@ -535,7 +540,7 @@ ECL_EXPORT const char *GetLoadError(void) {
 ECL_EXPORT int Init(void) {
 	load_error[0] = 0;
 	if (machine) {
-		snprintf(load_error, sizeof load_error, "the machine is already running");
+		snprintf(load_error, sizeof load_error, "error.already_running");
 		return 0;
 	}
 	machine = memnew(Machine);
@@ -575,7 +580,7 @@ ECL_EXPORT int Init(void) {
 	String pack_name = pack_host == "game" ? String("game.pck") : _mounted_name(pack_host.utf8().get_data());
 	String pack_path = "/game/" + pack_name;
 	if (!ChimeraFS::mount(pack_path, pack_host.utf8().get_data())) {
-		snprintf(load_error, sizeof load_error, "the game's pack (%s) could not be opened", pack_host.utf8().get_data());
+		snprintf(load_error, sizeof load_error, "error.pack_not_opened" TEXT_ARG "%s", pack_host.utf8().get_data());
 		return 0;
 	}
 	if (!_check_pack_version(ChimeraFS::find(pack_path))) {
@@ -618,7 +623,7 @@ ECL_EXPORT int Init(void) {
 
 	Error err = Main::setup(machine->os->get_executable_path().utf8().get_data(), argc, argv, false);
 	if (err != OK) {
-		snprintf(load_error, sizeof load_error, "Godot could not start this game (setup error %d); is this a Godot 4 game's .pck?", (int)err);
+		snprintf(load_error, sizeof load_error, "error.setup" TEXT_ARG "%d", (int)err);
 		return 0;
 	}
 
@@ -635,7 +640,7 @@ ECL_EXPORT int Init(void) {
 
 	err = Main::setup2();
 	if (err != OK) {
-		snprintf(load_error, sizeof load_error, "Godot could not start this game (setup2 error %d)", (int)err);
+		snprintf(load_error, sizeof load_error, "error.setup2" TEXT_ARG "%d", (int)err);
 		return 0;
 	}
 	// before the game's first scene, which may read its saves at once
@@ -643,7 +648,7 @@ ECL_EXPORT int Init(void) {
 		return 0;
 	}
 	if (Main::start() != EXIT_SUCCESS) {
-		snprintf(load_error, sizeof load_error, "Godot could not start this game: its main scene did not load");
+		snprintf(load_error, sizeof load_error, "error.no_main_scene");
 		return 0;
 	}
 	OS::get_singleton()->get_main_loop()->initialize();
