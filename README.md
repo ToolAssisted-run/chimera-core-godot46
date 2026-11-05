@@ -19,9 +19,8 @@ Godot 4.6.3 pinned; everything about how it works is in that repository's
 
 ## Status
 
-Published: each push to `main` that passes the tests publishes a `dev`
-release, and a dated nightly is made once a day when `main` moved. Chimera's
-Core Manager lists it.
+Published: a dated nightly is made once a day when `main` moved and its
+tests pass. Chimera's Core Manager lists it.
 
 - Godot 4.6 games written in GDScript, drawn with Godot's Compatibility
   renderer (OpenGL 3.3) on a software OpenGL inside the core (Mesa's
