@@ -23,7 +23,7 @@
 		"setting.verbose": "Godots log",
 		"setting.verbose.about": "'true' starter Godot med --verbose, så dens log (Værktøjer > Eksportér coreloggen, eller konsollen) siger, hvad den indlæser og tegner. Det ændrer intet i spillet.",
 		"slot.files": "Andre filer ved siden af spillet",
-		"slot.files.help": "Filer spillet åbner fra mappen, dets program ligger i, under de navne det beder om: en anden .pck, det indlæser (downloadbart indhold, en mod), eller data det læser ved siden af sig selv. Et spil, der ikke indlæser andet, behøver intet her.",
+		"slot.files.help": "Filer spillet åbner fra mappen, dets program ligger i, under de navne det beder om: en anden .pck, det indlæser (downloadbart indhold, en mod), eller data det læser ved siden af sig selv. Et spil, der ikke indlæser andet, behøver intet her. Filer af enhver art tages imod, for eksempel en ROM, som et spil beder dig om at medbringe.",
 		"slot.pack": "Spil",
 		"slot.pack.help": "Spillets .pck-fil, som et eksporteret Godot-spil har ved siden af sit program (Game.exe og Game.pck). Et spil eksporteret som én fil har .pck inde i sit program: giv så programmet (.exe eller .x86_64) i stedet.",
 		"slot.savedata": "Gemte data",

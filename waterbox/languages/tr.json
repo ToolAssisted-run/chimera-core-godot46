@@ -23,7 +23,7 @@
 		"setting.verbose": "Godot'un Günlüğü",
 		"setting.verbose.about": "'true', Godot'u --verbose ile başlatır; böylece günlüğü (Tools > Export Core Log ya da konsol), neyi yüklediğini ve çizdiğini söyler. Oyunda hiçbir şeyi değiştirmez.",
 		"slot.files": "Oyunun yanındaki öteki dosyalar",
-		"slot.files.help": "Oyunun çalıştırılabilirinin klasöründen, istediği adlarla açtığı dosyalar: yüklediği ikinci bir .pck (indirilebilir içerik, bir mod) ya da kendi yanındaki veriler. Başka bir şey yüklemeyen bir oyun burada hiçbir şeye ihtiyaç duymaz.",
+		"slot.files.help": "Oyunun çalıştırılabilirinin klasöründen, istediği adlarla açtığı dosyalar: yüklediği ikinci bir .pck (indirilebilir içerik, bir mod) ya da kendi yanındaki veriler. Başka bir şey yüklemeyen bir oyun burada hiçbir şeye ihtiyaç duymaz. Her türden dosya kabul edilir; örneğin bir oyunun sizden getirmenizi istediği bir ROM.",
 		"slot.pack": "Oyun",
 		"slot.pack.help": "Oyunun .pck dosyası; dışa aktarılmış bir Godot oyununun çalıştırılabilirinin yanında tuttuğu dosya (Game.exe ve Game.pck). Tek dosya olarak dışa aktarılmış bir oyunun .pck'si çalıştırılabilirinin içindedir: o zaman bunun yerine çalıştırılabilirini (.exe ya da .x86_64) verin.",
 		"slot.savedata": "Kayıt verisi",

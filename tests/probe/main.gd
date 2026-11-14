@@ -24,8 +24,15 @@ func _ready() -> void:
 	f = FileAccess.open("user://saves/slot.dat", FileAccess.WRITE)
 	f.store_string("slot of frame %d" % Engine.get_process_frames())
 	f = null
+	# user://logs is there at power-on, as a desktop Godot's log file makes
+	# it, and a game may open its own log there for writing (chimera issue
+	# 567); the log is removed again, so the save data stays as it was
+	f = FileAccess.open("user://logs/probe.log", FileAccess.WRITE)
+	var logs := "dir=%s open=%s" % [DirAccess.dir_exists_absolute("user://logs"), f != null]
+	f = null
+	DirAccess.remove_absolute("user://logs/probe.log")
 	print("probe renderer=[%s] [%s]" % [RenderingServer.get_video_adapter_name(), RenderingServer.get_video_adapter_api_version()])
-	print("probe ready unix=%d date=%s ticks=%d rnd=%d randf=%.6f window=%s os=%s saved=[%s] slot=[%s]" % [
+	print("probe ready unix=%d date=%s ticks=%d rnd=%d randf=%.6f window=%s os=%s saved=[%s] slot=[%s] logs=[%s]" % [
 		int(Time.get_unix_time_from_system()),
 		Time.get_datetime_string_from_system(true),
 		Time.get_ticks_msec(),
@@ -34,7 +41,8 @@ func _ready() -> void:
 		str(DisplayServer.window_get_size()),
 		OS.get_name(),
 		saved,
-		slot])
+		slot,
+		logs])
 
 
 func _input(event: InputEvent) -> void:
@@ -52,7 +60,11 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	frame += 1
-	var line := "probe f=%d ticks=%d delta=%.6f unix=%.3f rnd=%d mouse=%s lx=%.4f rt=%.4f" % [
+	# at frame 10 the game removes user://logs, so a state taken later is
+	# seen to carry the disk as the game left it: a new machine has the folder
+	if frame == 10:
+		DirAccess.remove_absolute("user://logs")
+	var line := "probe f=%d ticks=%d delta=%.6f unix=%.3f rnd=%d mouse=%s lx=%.4f rt=%.4f logs=%s" % [
 		frame,
 		Time.get_ticks_usec(),
 		delta,
@@ -60,7 +72,8 @@ func _process(delta: float) -> void:
 		rng.randi() % 1000,
 		str(get_viewport().get_mouse_position()),
 		Input.get_joy_axis(0, JOY_AXIS_LEFT_X),
-		Input.get_joy_axis(0, JOY_AXIS_TRIGGER_RIGHT)]
+		Input.get_joy_axis(0, JOY_AXIS_TRIGGER_RIGHT),
+		DirAccess.dir_exists_absolute("user://logs")]
 	print(line)
 	$Label.text = line.replace(" ", "\n")
 	queue_redraw()

@@ -23,7 +23,7 @@
 		"setting.verbose": "Journal de Godot",
 		"setting.verbose.about": "'true' lance Godot avec --verbose, pour que son journal (Outils > Exporter le journal du cœur, ou la console) indique ce qu'il charge et dessine. Cela ne change rien au jeu.",
 		"slot.files": "Autres fichiers à côté du jeu",
-		"slot.files.help": "Les fichiers que le jeu ouvre depuis le dossier de son exécutable, sous les noms qu'il demande : un second .pck qu'il charge (contenu téléchargeable, mod), ou des données qu'il lit à côté de lui-même. Un jeu qui ne charge rien d'autre n'a besoin de rien ici.",
+		"slot.files.help": "Les fichiers que le jeu ouvre depuis le dossier de son exécutable, sous les noms qu'il demande : un second .pck qu'il charge (contenu téléchargeable, mod), ou des données qu'il lit à côté de lui-même. Un jeu qui ne charge rien d'autre n'a besoin de rien ici. Les fichiers de tout type sont acceptés, comme une ROM qu'un jeu vous demande de fournir.",
 		"slot.pack": "Jeu",
 		"slot.pack.help": "Le fichier .pck du jeu, que garde un jeu Godot exporté à côté de son exécutable (Game.exe et Game.pck). Un jeu exporté en un seul fichier a son .pck à l'intérieur de son exécutable : donnez alors l'exécutable (.exe ou .x86_64) à la place.",
 		"slot.savedata": "Données de sauvegarde",

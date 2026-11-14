@@ -23,7 +23,7 @@
 		"setting.verbose": "Registro do Godot",
 		"setting.verbose.about": "'true' inicia o Godot com --verbose, para que o seu registro (Ferramentas > Exportar registro do núcleo, ou o console) diga o que ele carrega e desenha. Não muda nada no jogo.",
 		"slot.files": "Outros arquivos ao lado do jogo",
-		"slot.files.help": "Arquivos que o jogo abre da pasta onde está o seu executável, com os nomes que pede: um segundo .pck que ele carrega (conteúdo para baixar, um mod), ou dados que lê ao seu lado. Um jogo que não carrega mais nada não precisa de nada aqui.",
+		"slot.files.help": "Arquivos que o jogo abre da pasta onde está o seu executável, com os nomes que pede: um segundo .pck que ele carrega (conteúdo para baixar, um mod), ou dados que lê ao seu lado. Um jogo que não carrega mais nada não precisa de nada aqui. Arquivos de qualquer tipo são aceitos, como uma ROM que um jogo pede que você forneça.",
 		"slot.pack": "Jogo",
 		"slot.pack.help": "O arquivo .pck do jogo, que um jogo Godot exportado guarda ao lado do seu executável (Game.exe e Game.pck). Um jogo exportado como um arquivo único tem o .pck dentro do executável: então informe o executável (.exe ou .x86_64) no lugar.",
 		"slot.savedata": "Dados salvos",

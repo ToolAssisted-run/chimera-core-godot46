@@ -23,7 +23,7 @@
 		"setting.verbose": "Godotin loki",
 		"setting.verbose.about": "'true' käynnistää Godotin komennolla --verbose, jotta sen loki (Työkalut > Vie ytimen loki tai konsoli) kertoo, mitä se lataa ja piirtää. Se ei muuta mitään pelissä.",
 		"slot.files": "Muut pelin viereiset tiedostot",
-		"slot.files.help": "Tiedostot, jotka peli avaa suoritettavansa kansiosta sen pyytämillä nimillä: toinen .pck, jonka se lataa (ladattava sisältö, modi), tai data, jota se lukee vierestään. Peli, joka ei lataa muuta, ei tarvitse tässä mitään.",
+		"slot.files.help": "Tiedostot, jotka peli avaa suoritettavansa kansiosta sen pyytämillä nimillä: toinen .pck, jonka se lataa (ladattava sisältö, modi), tai data, jota se lukee vierestään. Peli, joka ei lataa muuta, ei tarvitse tässä mitään. Kaikenlaiset tiedostot kelpaavat, esimerkiksi ROM, jonka peli pyytää sinua tuomaan.",
 		"slot.pack": "Peli",
 		"slot.pack.help": "Pelin .pck-tiedosto, jonka viety Godot-peli säilyttää suoritettavansa vieressä (Game.exe ja Game.pck). Peli, joka on viety yhtenä tiedostona, on .pck-tiedosto suoritettavan sisällä: anna silloin suoritettava tiedosto (.exe tai .x86_64).",
 		"slot.savedata": "Tallennustiedot",

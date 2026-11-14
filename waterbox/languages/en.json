@@ -23,7 +23,7 @@
 		"setting.verbose": "Godot's Log",
 		"setting.verbose.about": "'true' starts Godot with --verbose, so that its log (Tools > Export Core Log, or the console) says what it loads and draws. It changes nothing in the game.",
 		"slot.files": "Other files beside the game",
-		"slot.files.help": "Files the game opens from the folder its executable is in, under the names it asks for: a second .pck it loads (downloadable content, a mod), or data it reads beside itself. A game that loads nothing else needs nothing here.",
+		"slot.files.help": "Files the game opens from the folder its executable is in, under the names it asks for: a second .pck it loads (downloadable content, a mod), or data it reads beside itself. A game that loads nothing else needs nothing here. Files of any kind are taken, such as a ROM a game asks you to bring.",
 		"slot.pack": "Game",
 		"slot.pack.help": "The game's .pck file, which an exported Godot game keeps beside its executable (Game.exe and Game.pck). A game exported as a single file has the .pck inside its executable: then give the executable (.exe or .x86_64) instead.",
 		"slot.savedata": "Save data",

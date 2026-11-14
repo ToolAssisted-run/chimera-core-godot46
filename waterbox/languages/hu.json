@@ -23,7 +23,7 @@
 		"setting.verbose": "A Godot naplója",
 		"setting.verbose.about": "A „true” a Godotot --verbose kapcsolóval indítja, így a naplója (Eszközök > A mag naplójának exportálása, vagy a konzol) megmondja, mit tölt be és mit rajzol. A játékot nem változtatja.",
 		"slot.files": "Egyéb fájlok a játék mellett",
-		"slot.files.help": "Fájlok, amelyeket a játék a futtatható fájlja mappájából nyit meg, a nevükön, amelyet kér: egy második .pck, amelyet betölt (letölthető tartalom, mod), vagy adatok, amelyeket a mellette olvas. Ha a játék mást nem tölt be, itt nincs szükség semmire.",
+		"slot.files.help": "Fájlok, amelyeket a játék a futtatható fájlja mappájából nyit meg, a nevükön, amelyet kér: egy második .pck, amelyet betölt (letölthető tartalom, mod), vagy adatok, amelyeket a mellette olvas. Ha a játék mást nem tölt be, itt nincs szükség semmire. Bármilyen fájl megadható, például egy ROM, amelyet a játék kér öntől.",
 		"slot.pack": "Játék",
 		"slot.pack.help": "A játék .pck fájlja, amelyet egy exportált Godot-játék a futtatható fájlja mellett tart (Game.exe és Game.pck). Az egyetlen fájlként exportált játék .pck-ja a futtatható fájlján belül van: akkor add meg helyette a futtatható fájlt (.exe vagy .x86_64).",
 		"slot.savedata": "Mentési adatok",

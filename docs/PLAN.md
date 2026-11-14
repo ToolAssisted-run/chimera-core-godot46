@@ -54,3 +54,62 @@ game plays the same either way. The test script checks the 256-bit code in
 the sandbox and natively, native = sandbox with it, and that Baseline still
 makes 128-bit code and plays the same steps.
 
+
+## A game that asks for a file of the player's own (user-decided, 2026-11-14, chimera issue 567)
+
+Super Mario Bros. Remastered 1.1.0 (GPL-3.0, Godot 4.6) did not start in
+the Godot 4.6 core, and it needs the player's own Super Mario Bros. NES ROM.
+The owner asked for support only through changes every Godot game could use
+(2026-11-14). Two were needed.
+
+- **The files slot takes a file of any kind** (user-decided, 2026-11-14).
+  The game looks in the folder of its executable for any file ending in
+  `.nes`, checks its hash and copies it to `user://baserom.nes`. The core
+  already puts the files of the project's "Other files beside the game"
+  slot in that folder (`/game`), but the slot listed eight extensions, and
+  Chimera refused a project with a `.nes` there ("file '...' is not a format
+  slot 'files' accepts"). The slot now declares no formats
+  (`"formats": []`): Chimera takes any file there (a rule it documents and
+  tests), the file picker shows every file, and the core is unchanged.
+- **user://logs is there at power-on** (user-decided, 2026-11-14: "No side
+  effects in Chimera are allowable. Any file system modifications need to be
+  fully emulated."). The game's mod loader opens `user://logs/modloader.log`
+  for writing without checking the result. On a desktop, Godot's own log
+  file has made that folder; here Godot's log goes nowhere (see "Save
+  data"), the open failed, and the export template, which leaves out
+  GDScript's null checks, crashed the core at start ("the core crashed: it
+  read or ran address (nil)", in `MethodBindTR<bool, String const&>`). The
+  core's disk now holds an empty `/user/logs` from power-on. That disk is
+  the core's memory, so the folder is in every state and nothing is written
+  to the computer's files. An empty folder is no save data.
+
+Tests: `waterbox/run-gate.sh` checks that the probe's own log opens in
+user://logs, native and in the sandbox, with a save and load before every
+frame, and from states at frame 0 and frame 25 (the probe removes the folder
+at frame 10, so the later state is seen to carry the disk as the game left
+it, where a new machine has the folder); and that Dodge the Creeps, which
+writes nothing, exports no save data. The probe was exported again with this
+core's Godot editor for these checks. `tests/run-frontend.sh` makes a project
+with a generated `stand-in.nes` in the files slot and plays it to the
+reference's picture.
+
+Measured on jaffanator01 (2026-11-14):
+
+- `waterbox/run-gate.sh`: 51 passed, 0 failed. Built without the folder,
+  the three new user://logs checks failed (the probe printed
+  `logs=[dir=false open=false]`) and the other 48 passed.
+- `tests/run-frontend.sh`: 6 ok. Before the files slot changed, the new
+  check failed with Chimera's refusal of `stand-in.nes`.
+- Nothing reaches the computer's files: strace of `run-wbx` running the
+  probe showed only reads of its inputs and libraries, and no folder made;
+  no call in either build named `logs`.
+- Super Mario Bros. Remastered 1.1.0 with the player's ROM in the files
+  slot and nothing else, through a project: it verified the ROM, made its
+  157 pictures from it, reached its title by frame 1000, and with inputs
+  went through its menus into World 1-1, where Mario walked, jumped and
+  lost his lives (4000 frames in chimera-run; 2400 frames in Chimera's
+  window, run headless, to the same place). Before these changes it
+  crashed at start. Its two GDExtensions (a GIF loader and Discord) do not
+  load and it goes on without them; its HTTPS version check fails ("HTTPS
+  is not available in this build") and it goes on. A whole level was not
+  finished.

@@ -23,7 +23,7 @@
 		"setting.verbose": "Registre de Godot",
 		"setting.verbose.about": "'true' inicia Godot amb --verbose, perquè el seu registre (Eines > Exporta el registre del nucli, o la consola) digui què carrega i què dibuixa. No canvia res del joc.",
 		"slot.files": "Altres fitxers al costat del joc",
-		"slot.files.help": "Fitxers que el joc obre des de la carpeta del seu executable, amb els noms que demana: un segon .pck que carrega (contingut descarregable, un mod), o dades que llegeix al costat de si mateix. Un joc que no carrega res més no necessita res aquí.",
+		"slot.files.help": "Fitxers que el joc obre des de la carpeta del seu executable, amb els noms que demana: un segon .pck que carrega (contingut descarregable, un mod), o dades que llegeix al costat de si mateix. Un joc que no carrega res més no necessita res aquí. S'hi accepten fitxers de qualsevol tipus, com ara una ROM que un joc us demana que porteu.",
 		"slot.pack": "Joc",
 		"slot.pack.help": "El fitxer .pck del joc, que un joc de Godot exportat guarda al costat del seu executable (Game.exe i Game.pck). Un joc exportat com a fitxer únic té el .pck dins del seu executable: en aquest cas doneu l'executable (.exe o .x86_64) en lloc d'això.",
 		"slot.savedata": "Dades desades",

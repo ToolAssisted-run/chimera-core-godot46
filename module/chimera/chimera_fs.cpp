@@ -28,6 +28,12 @@ void ChimeraFS::initialize() {
 	make_dir("/");
 	make_dir("/game");
 	make_dir("/user");
+	// user://logs: a desktop Godot's own log file makes this folder before a
+	// game starts, and games write their own logs in it without making it
+	// (chimera issue 567). Here Godot's log goes nowhere, so the folder is
+	// made in this disk, which is the core's memory: nothing reaches the
+	// computer's files. An empty folder is not save data.
+	make_dir("/user/logs");
 	make_dir("/tmp");
 	make_dir("/dev");
 	make_file("/dev/null")->discard = true;

@@ -23,7 +23,7 @@
 		"setting.verbose": "Jurnalul Godot",
 		"setting.verbose.about": "„true” pornește Godot cu --verbose, ca jurnalul lui (Tools > Export Core Log, sau consola) să spună ce încarcă și ce desenează. Nu schimbă nimic în joc.",
 		"slot.files": "Alte fișiere lângă joc",
-		"slot.files.help": "Fișierele pe care le deschide jocul din dosarul în care se află executabilul său, sub numele pe care le cere: un al doilea .pck pe care îl încarcă (conținut descărcabil, un mod), sau date pe care le citește lângă el. Un joc care nu încarcă nimic altceva nu are nevoie de nimic aici.",
+		"slot.files.help": "Fișierele pe care le deschide jocul din dosarul în care se află executabilul său, sub numele pe care le cere: un al doilea .pck pe care îl încarcă (conținut descărcabil, un mod), sau date pe care le citește lângă el. Un joc care nu încarcă nimic altceva nu are nevoie de nimic aici. Sunt primite fișiere de orice fel, de exemplu un ROM pe care un joc vă cere să-l aduceți.",
 		"slot.pack": "Joc",
 		"slot.pack.help": "Fișierul .pck al jocului, pe care un joc Godot exportat îl păstrează lângă executabilul său (Game.exe și Game.pck). Un joc exportat ca un singur fișier are .pck în interiorul executabilului: atunci dă executabilul (.exe sau .x86_64) în schimb.",
 		"slot.savedata": "Date salvate",

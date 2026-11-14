@@ -23,7 +23,7 @@
 		"setting.verbose": "Log Godot",
 		"setting.verbose.about": "'true' memulai Godot dengan --verbose, sehingga lognya (Alat > Ekspor Log Core, atau konsol) menyebutkan apa yang dimuat dan digambarnya. Ini tidak mengubah apa pun dalam game.",
 		"slot.files": "File lain di samping game",
-		"slot.files.help": "File yang dibuka game dari folder tempat executable-nya berada, dengan nama yang diminta game: .pck kedua yang dimuatnya (konten unduhan, mod), atau data yang dibacanya di sampingnya. Game yang tidak memuat apa pun lagi tidak membutuhkan apa pun di sini.",
+		"slot.files.help": "File yang dibuka game dari folder tempat executable-nya berada, dengan nama yang diminta game: .pck kedua yang dimuatnya (konten unduhan, mod), atau data yang dibacanya di sampingnya. Game yang tidak memuat apa pun lagi tidak membutuhkan apa pun di sini. File jenis apa pun diterima, misalnya ROM yang diminta game untuk Anda sediakan.",
 		"slot.pack": "Game",
 		"slot.pack.help": "File .pck game, yang disimpan game Godot yang diekspor di samping executable-nya (Game.exe dan Game.pck). Game yang diekspor sebagai satu file memiliki .pck di dalam executable-nya: berikan executable (.exe atau .x86_64) sebagai gantinya.",
 		"slot.savedata": "Data simpanan",

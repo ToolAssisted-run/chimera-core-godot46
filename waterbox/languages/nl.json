@@ -23,7 +23,7 @@
 		"setting.verbose": "Logboek van Godot",
 		"setting.verbose.about": "'true' start Godot met --verbose, zodat zijn logboek (Tools > Export Core Log, of de console) zegt wat het laadt en tekent. Het verandert niets aan het spel.",
 		"slot.files": "Andere bestanden naast het spel",
-		"slot.files.help": "Bestanden die het spel opent uit de map waar zijn programma in staat, onder de namen die het vraagt: een tweede .pck die het laadt (downloadbare inhoud, een mod), of gegevens die het naast zichzelf leest. Een spel dat niets anders laadt, heeft hier niets nodig.",
+		"slot.files.help": "Bestanden die het spel opent uit de map waar zijn programma in staat, onder de namen die het vraagt: een tweede .pck die het laadt (downloadbare inhoud, een mod), of gegevens die het naast zichzelf leest. Een spel dat niets anders laadt, heeft hier niets nodig. Bestanden van elk soort worden aangenomen, zoals een ROM die een spel u vraagt mee te brengen.",
 		"slot.pack": "Spel",
 		"slot.pack.help": "Het .pck-bestand van het spel, dat een geëxporteerd Godot-spel naast zijn programma bewaart (Game.exe en Game.pck). Een spel dat als één bestand is geëxporteerd, heeft het .pck in zijn programma: geef dan het programma (.exe of .x86_64) op.",
 		"slot.savedata": "Opgeslagen gegevens",

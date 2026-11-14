@@ -23,7 +23,7 @@
 		"setting.verbose": "Godot-Protokoll",
 		"setting.verbose.about": "'true' startet Godot mit --verbose, damit sein Protokoll (Tools > Core-Protokoll exportieren oder die Konsole) sagt, was es lädt und zeichnet. Es ändert nichts am Spiel.",
 		"slot.files": "Andere Dateien neben dem Spiel",
-		"slot.files.help": "Dateien, die das Spiel aus dem Ordner seiner Programmdatei öffnet, unter den Namen, die es verlangt: eine zweite .pck-Datei, die es lädt (herunterladbare Inhalte, eine Modifikation), oder Daten, die es neben sich liest. Ein Spiel, das nichts Weiteres lädt, braucht hier nichts.",
+		"slot.files.help": "Dateien, die das Spiel aus dem Ordner seiner Programmdatei öffnet, unter den Namen, die es verlangt: eine zweite .pck-Datei, die es lädt (herunterladbare Inhalte, eine Modifikation), oder Daten, die es neben sich liest. Ein Spiel, das nichts Weiteres lädt, braucht hier nichts. Dateien jeder Art werden angenommen, etwa ein ROM, das ein Spiel von Ihnen verlangt.",
 		"slot.pack": "Spiel",
 		"slot.pack.help": "Die .pck-Datei des Spiels, die ein exportiertes Godot-Spiel neben seiner Programmdatei behält (Game.exe und Game.pck). Ein als einzelne Datei exportiertes Spiel hat die .pck in seiner Programmdatei: Geben Sie dann stattdessen die Programmdatei (.exe oder .x86_64) an.",
 		"slot.savedata": "Speicherdaten",

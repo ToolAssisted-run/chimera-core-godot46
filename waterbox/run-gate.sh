@@ -29,7 +29,11 @@
 #                nothing of Godot's own), the same in both builds and after a
 #                session; a project's save file, or the export's .zip, is in
 #                user:// when the game starts; a zip that names a place
-#                outside user:// is refused
+#                outside user:// is refused; a game that wrote nothing
+#                exports nothing
+#   logs         user://logs is there at power-on, as a desktop Godot's log
+#                file makes it, and a game's own log opens in it; it is in
+#                the core's memory and in its states, the same in both builds
 #   renderer     the game draws on llvmpipe with the pinned CPU's 128-bit
 #                vectors, in both builds, whatever the computer's CPU or
 #                environment
@@ -172,7 +176,7 @@ probe_movie=(
 "$wbx" "$core" "$work/probe" --frames $pf "${probe_movie[@]}" > "$work/pw.txt" 2> "$work/pw.err"
 same equivalence "$work/pn.txt" "$work/pw.txt" "the probe: native = sandbox, $pf frames, every picture, the sound and the $(grep -c '^probe' "$work/pn.txt") lines it printed"
 "$wbx" "$core" "$work/probe" --frames $pf "${probe_movie[@]}" --session-at 25 > "$work/ps.txt" 2> "$work/ps.err"
-same session "$work/ps.txt" "$work/pw.txt" "the probe saved at frame 25, between the two clicks, loaded into a new host = straight"
+same session "$work/ps.txt" "$work/pw.txt" "the probe saved at frame 25, between the two clicks, loaded into a new host = straight (and without user://logs, which the game removed at frame 10 and a new machine has)"
 
 # Drawing Code (chimera issue 380): AVX2 by default (owner, 2026-10-28), so
 # on a computer with all of x86-64-v3 llvmpipe makes 256-bit code, and on one
@@ -233,7 +237,21 @@ has controller "$work/pn.txt" "probe event f=50 pad button 0 down" "P1 A is the 
 has controller "$work/pn.txt" "probe event f=50 pad axis 0 1.0000" "the left stick all the way right is 1"
 has controller "$work/pn.txt" "probe event f=50 pad axis 5 0.4883" "the right trigger at 16000 of 32767 is 0.4883"
 has controller "$work/pn.txt" "probe f=62 ticks=1033333 delta=0.016667 unix=946684801.033 rnd=" "the frames go on after the controller is let go"
-has user:// "$work/pn.txt" "saved=[]" "the game's user:// is empty when the machine starts"
+has user:// "$work/pn.txt" "saved=[]" "the game's user:// has no file when the machine starts"
+
+# user://logs (chimera issue 567): the folder a desktop Godot's log file
+# makes; games write their own logs in it without making it
+has logs "$work/pn.txt" "slot=[] logs=[dir=true open=true]" "user://logs is there at power-on, and the game's own log opens in it for writing"
+has logs "$work/pw.txt" "slot=[] logs=[dir=true open=true]" "and in the sandbox"
+if grep -qE '^probe f=9 .* logs=true$' "$work/pn.txt" && grep -qE '^probe f=10 .* logs=false$' "$work/pn.txt"; then
+	pass "logs: the folder is there until the game removes it at frame 10"
+else
+	fail "logs: $(grep -E '^probe f=(9|10) ' "$work/pn.txt")"
+fi
+"$wbx" "$core" "$work/probe" --frames $pf "${probe_movie[@]}" --rerecord > "$work/pr.txt" 2> "$work/pr.err"
+same logs "$work/pr.txt" "$work/pw.txt" "the probe with a save and load before every frame = straight (the log opened, the folder removed at frame 10)"
+"$wbx" "$core" "$work/probe" --frames $pf "${probe_movie[@]}" --session-at 0 > "$work/ps0.txt" 2> "$work/ps0.err"
+same logs "$work/ps0.txt" "$work/pw.txt" "the probe saved at frame 0, with the folder, loaded into a new host = straight"
 
 echo "== save data (the probe keeps user://probe.txt and user://saves/slot.dat)"
 mkdir -p "$work/sdn" "$work/sdw" "$work/sds"
@@ -278,6 +296,14 @@ mkdir -p "$work/seedbad"; cp "$work/bad.zip" "$work/seedbad/user.zip"
 seed seedbad '{"pack":["probe.pck"],"savedata":["user.zip"]}'
 "$native" "$work/seedbad" --frames 1 > "$work/seedbad.txt" 2> /dev/null
 has "save data" "$work/seedbad.txt" "loadError=error.save_bad_name${S}user.zip${S}../escape.txt" "a zip holding a name outside user:// is refused, saying which"
+
+mkdir -p "$work/sdtc"
+"$wbx" "$core" "$work/dtc" --frames 60 --savedata-out "$work/sdtc" > "$work/sdtc.txt" 2> /dev/null
+if grep -q '^videoHash=' "$work/sdtc.txt" && [ -z "$(find "$work/sdtc" -mindepth 1)" ]; then
+	pass "save data: Dodge the Creeps writes nothing, and Export Save Data is empty (the empty user://logs is no file)"
+else
+	fail "save data: Dodge the Creeps exported: $(cd "$work/sdtc" && find . -mindepth 1 | tr '\n' ' ')"
+fi
 
 echo "== the game's Godot version"
 # A pack says which Godot exported it; a core runs its own version's games

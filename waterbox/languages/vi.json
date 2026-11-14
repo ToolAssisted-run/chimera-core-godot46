@@ -23,7 +23,7 @@
 		"setting.verbose": "Nhật ký của Godot",
 		"setting.verbose.about": "'true' khởi động Godot với --verbose, để nhật ký của nó (Tools > Export Core Log, hoặc bảng điều khiển) ghi lại những gì nó tải và vẽ. Nó không thay đổi gì trong trò chơi.",
 		"slot.files": "Các tệp khác bên cạnh trò chơi",
-		"slot.files.help": "Các tệp mà trò chơi mở từ thư mục chứa chương trình của nó, dưới tên nó yêu cầu: một tệp .pck thứ hai mà nó tải (nội dung tải về, một mod), hoặc dữ liệu nó đọc bên cạnh chính nó. Trò chơi không tải gì khác thì không cần gì ở đây.",
+		"slot.files.help": "Các tệp mà trò chơi mở từ thư mục chứa chương trình của nó, dưới tên nó yêu cầu: một tệp .pck thứ hai mà nó tải (nội dung tải về, một mod), hoặc dữ liệu nó đọc bên cạnh chính nó. Trò chơi không tải gì khác thì không cần gì ở đây. Tệp thuộc bất kỳ loại nào đều được nhận, chẳng hạn một ROM mà trò chơi yêu cầu bạn tự cung cấp.",
 		"slot.pack": "Trò chơi",
 		"slot.pack.help": "Tệp .pck của trò chơi, mà một trò chơi Godot đã xuất giữ bên cạnh chương trình của nó (Game.exe và Game.pck). Trò chơi được xuất thành một tệp duy nhất có .pck nằm trong chương trình của nó: khi đó hãy đưa chương trình (.exe hoặc .x86_64) thay vào.",
 		"slot.savedata": "Dữ liệu lưu",

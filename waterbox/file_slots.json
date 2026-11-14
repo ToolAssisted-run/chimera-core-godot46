@@ -20,16 +20,7 @@
       "title": "slot.files",
       "min": 0,
       "max": -1,
-      "formats": [
-        "pck",
-        "zip",
-        "json",
-        "cfg",
-        "txt",
-        "dat",
-        "bin",
-        "ini"
-      ],
+      "formats": [],
       "help": "slot.files.help"
     },
     {

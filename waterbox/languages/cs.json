@@ -23,7 +23,7 @@
 		"setting.verbose": "Log Godotu",
 		"setting.verbose.about": "„true“ spustí Godot s --verbose, takže jeho log (Tools > Export Core Log, nebo konzole) říká, co načítá a kreslí. Hru to nemění.",
 		"slot.files": "Další soubory vedle hry",
-		"slot.files.help": "Soubory, které hra otevírá ze složky, ve které je její spustitelný soubor, pod názvy, které žádá: druhý .pck, který načte (obsah ke stažení, mod), nebo data, která čte vedle sebe. Hra, která nic dalšího nenačítá, tu nic nepotřebuje.",
+		"slot.files.help": "Soubory, které hra otevírá ze složky, ve které je její spustitelný soubor, pod názvy, které žádá: druhý .pck, který načte (obsah ke stažení, mod), nebo data, která čte vedle sebe. Hra, která nic dalšího nenačítá, tu nic nepotřebuje. Přijmou se soubory jakéhokoli druhu, například ROM, o kterou hra žádá, abyste ji dodali.",
 		"slot.pack": "Hra",
 		"slot.pack.help": "Soubor .pck hry, který exportovaná hra Godot drží vedle svého spustitelného souboru (Game.exe a Game.pck). Hra exportovaná jako jediný soubor má .pck uvnitř svého spustitelného souboru: pak dej místo něj spustitelný soubor (.exe nebo .x86_64).",
 		"slot.savedata": "Uložená data",

@@ -23,7 +23,7 @@
 		"setting.verbose": "Dziennik Godot",
 		"setting.verbose.about": "„true” uruchamia Godot z --verbose, dzięki czemu jego dziennik (Tools > Export Core Log albo konsola) mówi, co wczytuje i rysuje. Niczego w grze nie zmienia.",
 		"slot.files": "Inne pliki obok gry",
-		"slot.files.help": "Pliki, które gra otwiera z folderu, w którym leży jej program, pod nazwami, o które prosi: drugi .pck, który wczytuje (dodatkowa zawartość, mod), albo dane, które czyta obok siebie. Gra, która nic innego nie wczytuje, nie potrzebuje tu niczego.",
+		"slot.files.help": "Pliki, które gra otwiera z folderu, w którym leży jej program, pod nazwami, o które prosi: drugi .pck, który wczytuje (dodatkowa zawartość, mod), albo dane, które czyta obok siebie. Gra, która nic innego nie wczytuje, nie potrzebuje tu niczego. Przyjmowane są pliki dowolnego rodzaju, na przykład ROM, o który prosi gra.",
 		"slot.pack": "Gra",
 		"slot.pack.help": "Plik .pck gry, który wyeksportowana gra Godot trzyma obok swojego programu (Game.exe i Game.pck). Gra wyeksportowana jako pojedynczy plik ma .pck w swoim programie: wtedy podaj program (.exe albo .x86_64).",
 		"slot.savedata": "Zapis gry",

@@ -4,8 +4,9 @@
 # needs no game of anyone's and runs anywhere.
 #
 # - chimera-run (the engine, no window): a movie from a file and the same
-#   movie in a hand-written project. The last picture must be the native
-#   reference's (run-native) at that frame.
+#   movie in a hand-written project, and that project with a file of a
+#   kind no list names in the files slot. The last picture must be the
+#   native reference's (run-native) at that frame.
 # - Chimera's window, run headless (no display needed): the same project
 #   opened and played through Lua, its last picture compared with the
 #   reference's; and the package's bindings becoming Chimera's defaults.
@@ -103,6 +104,27 @@ else
 		report "engine:project" PASS "the same movie in a project, the pack in its slot: the same last picture"
 	else
 		report "engine:project" FAIL "$(grep -m1 detail= "$work/proj.meta" 2>/dev/null) $(cat "$work/proj.pic" 2>/dev/null) (build/frontend/proj.log)"
+	fi
+
+	# The "Other files beside the game" slot takes a file of any kind
+	# (chimera issue 567): a game may ask the player for a file of their own
+	# to put beside it, with an extension no list here could know (Super
+	# Mario Bros. Remastered reads a .nes ROM from its folder). The stand-in
+	# is made here, so it is free: Chimera must make the project with it and
+	# hand it to the core, and the game must play as it did without it.
+	mkdir -p "$work/anyfile"
+	cp "$game" "$work/anyfile/"
+	head -c 40976 /dev/zero | tr '\0' 'S' > "$work/anyfile/stand-in.nes"
+	python3 "$here/make-project.py" "$pkg" "$work/anyfile/test.chimeraProject" "$frames" \
+		"press=Key Enter:130:2" "press=Key Left:200:60" "axis=Mouse X:240:16000" \
+		-- "pack=$work/anyfile/$(basename "$game")" "files=$work/anyfile/stand-in.nes"
+	( cd "$work" && timeout 900 "$crun" --project "$work/anyfile/test.chimeraProject" "$pkg" --files "$work/anyfile" --frames "$frames" \
+		--screenshot "$((frames - 1))=$work/anyfile.last.tga" --meta "$work/anyfile.meta" > "$work/anyfile.log" 2>&1 )
+	if grep -q '^status=OK' "$work/anyfile.meta" 2>/dev/null &&
+	   python3 "$here/compare-pictures.py" "$work/native.last.tga" "$work/anyfile.last.tga" > "$work/anyfile.pic" 2>&1; then
+		report "engine:any-file" PASS "the project also holds stand-in.nes in the files slot: it is taken, and the game plays to the same last picture"
+	else
+		report "engine:any-file" FAIL "$(grep -m1 detail= "$work/anyfile.meta" 2>/dev/null) $(cat "$work/anyfile.pic" 2>/dev/null) (build/frontend/anyfile.log)"
 	fi
 fi
 
