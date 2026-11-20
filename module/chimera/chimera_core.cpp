@@ -50,6 +50,20 @@ int chimera_slot_count(const char *p_id);
 const char *chimera_slot_name(const char *p_id, int p_index, char *r_out, int p_outsz);
 }
 
+// The machine's specification, version 3 (miniBox's docs/MACHINE-SPEC.md,
+// "Virtual time"). The reason is its mmap: a bare address hint is kept only
+// where those pages are free. Under version 2 it maps there whatever lives
+// there, and LLVM's code generator inside Mesa's llvmpipe asks for the page
+// next to one it has just got by such a hint, so it can wipe a page of
+// something else (found with the Supermodel core's picture buffer). The other
+// change of version 3 is the machine's own clock (every clock read advances
+// it a microsecond); Godot's time here is the core's own (OS_Chimera), so
+// nothing the game sees follows it.
+extern "C" {
+__attribute__((visibility("default"))) __attribute__((used)) extern const unsigned int __wbx_machine_spec;
+__attribute__((visibility("default"))) __attribute__((used)) const unsigned int __wbx_machine_spec = 3;
+}
+
 /* ---- the inputs --------------------------------------------------------- */
 
 namespace {
