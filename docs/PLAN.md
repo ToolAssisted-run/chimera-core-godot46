@@ -134,3 +134,5 @@ frames over the frame rate), so no game sees the machine's clock.
 
 Tests on jaffanator01: `waterbox/run-gate.sh` 51 passed, 0 failed, 0 skipped; `tests/run-frontend.sh` 6 ok, 0 failed, 0 skipped;
 Chimera's `test-packages` on the package 26 passed, 0 failed.
+
+Old movies: on the Godot 4.4 core the same change was checked (2026-11-21): a movie recorded with the spec-2 package gives the same pictures on the spec-3 one. It was not repeated on this version, which has the same core code (OS_Chimera keeps Godot's time) and so is expected to behave the same.
